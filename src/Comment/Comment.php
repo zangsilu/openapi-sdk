@@ -1,0 +1,120 @@
+<?php
+/**
+ * Vendor_Comment_Comment
+ *
+ * PHP version 5.2+
+ *
+ * @category  Comment
+ * @package   Vendor\Comment
+ * @author    Jianbo Qin <qinjb@boqii.com>
+ * @copyright 2016-2019 guangcheng Co. All Rights Reserved.
+ * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
+ * @version   GIT:<git_id>
+ * @link      http://shop.openapi.boqii.com
+ */
+class Vendor_Comment_Comment extends Vendor_Api
+{
+    /**
+     * 获取评论列表
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getList($criteria)
+    {
+        $url = 'comments?act=getList';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+    /**
+     * 获取评论数量
+     *
+     * @param $criteria
+     *
+     * @return array
+     */
+    public function getCount($criteria)
+    {
+        $url = 'comments?act=getCount';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+
+    /**
+     * 检查能否评论时计算评论数量
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getCountOfCanComment($criteria)
+    {
+        $url = 'comments?act=getCountOfCanComment';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+
+    /**
+     * 根据回复ID 和有效性获取评论列表
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getByReplyIdValid($criteria)
+    {
+        $url = 'comments?act=getByReplyIdValid';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+
+    /**
+     * 根据父类ID 获取评论列表
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getByParentId($criteria)
+    {
+        $url = 'comments?act=getByParentId';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+
+    public function getByBrandId($criteria)
+    {
+        $url = 'comments?act=getByBrandId';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+
+    /**
+     * 根据订单ID 商品ID 用户ID 获取评论列表
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getListByOidPidUid($criteria)
+    {
+        $url = 'comments?act=getListByOidPidUid';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
+
+    /**
+     * 添加评论
+     *
+     * @param $comment
+     *
+     * @return mixed
+     */
+    public function create($comment)
+    {
+        $url = 'comment';
+
+        return $this->client->post($url, $comment)->toArray();
+    }
+}

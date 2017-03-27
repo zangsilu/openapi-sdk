@@ -1,0 +1,25 @@
+{
+    "name": "openapi/api-sdk",
+    "authors": [
+        {
+            "name": "秦建波",
+            "email": "qinjb@boqii.com"
+        },
+        {
+            "name": "王爱波",
+            "email": "wangab@boqii.com"
+        },
+        {
+            "name": "刘国靖",
+            "email": "liugj@boqii.com"
+        }
+      ],
+     "minimum-stability": "stable",
+     "autoload":{
+            "classmap": ["src/"],
+            "files": ["./helpers.php"]
+      },
+      "require": {},
+      "require-dev": {
+      }
+}
