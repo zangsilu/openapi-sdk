@@ -38,10 +38,10 @@ class Vendor_Goods_Product extends Vendor_Api
     /**
      * getList 
      * 
-     * @param mixed $criteria 
+     * @param mixed  $criteria 
      * @param string $orderSort 
-     * @param int $limit 
-     * @param mixed $offset 
+     * @param int    $limit 
+     * @param mixed  $offset 
      * 
      * @access public
      * 

@@ -25,7 +25,7 @@ class Vendor_Arch extends Vendor_Api
      */
     public function search($criteria = array())
     {
-       $url = 'search';
-       return $this->client->get($url, $criteria)->toArray();
+        $url = 'search';
+        return $this->client->get($url, $criteria)->toArray();
     }
 }

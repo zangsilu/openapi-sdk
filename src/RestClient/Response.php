@@ -111,14 +111,14 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
         return $this->body;
     }
     public function json($assoc = true)
-	{
-		$json = json_decode($this->body, $assoc);
-		if (!$json) {
-			throw new Vendor_RestClient_Exception_JsonDecode(json_last_error_msg());
-		}
+    {
+        $json = json_decode($this->body, $assoc);
+        if (!$json) {
+               throw new Vendor_RestClient_Exception_JsonDecode(json_last_error_msg());
+        }
 
-		return $json;
-	}
+        return $json;
+    }
     /**
      * status
      *

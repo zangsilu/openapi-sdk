@@ -25,7 +25,7 @@ class Vendor_Arch_Direct extends Vendor_Api
      */
     public function delete($criteria = array())
     {
-       $url = 'search/direct';
-       return $this->client->delete($url, $criteria)->toArray();
+        $url = 'search/direct';
+        return $this->client->delete($url, $criteria)->toArray();
     }
 }

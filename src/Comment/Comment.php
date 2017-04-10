@@ -117,4 +117,24 @@ class Vendor_Comment_Comment extends Vendor_Api
 
         return $this->client->post($url, $comment)->toArray();
     }
+
+        /**
+     * 添加评论
+     *
+     * @param $comment
+     *
+     * @return mixed
+     */
+    public function getDistributionOrderComment(array $distributionIds = [])
+    {
+        $distributionIds = ! empty($distributionIds) ? implode(',', $distributionIds) : '';
+        $url = '/?';
+        $criteria = array(
+            'method' => 'shop.distribution.order.comment',
+            'format' => 'json',
+            'data'   => $distributionIds,
+        );
+
+        return $this->client->post($url, $criteria)->toArray();
+    }
 }
