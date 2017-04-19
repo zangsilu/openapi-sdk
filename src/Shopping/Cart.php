@@ -12,7 +12,7 @@
  * @version   GIT:<git_id>
  * @link      http://shop.openapi.boqii.com
  */
-class Vendor_Shopping_Cart extends Vendor_Proxy
+class Vendor_Shopping_Cart extends Vendor_Api
 {
     /**
      * 获取购物车商品信息 getShoppingCartDetailV2
@@ -29,7 +29,7 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'GetShoppingCartDetailV2';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
 
     /**
@@ -45,7 +45,7 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'ModifyShoppingCartGoodsNumber';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
 
     /**
@@ -61,7 +61,7 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'GetShoppingCartMoneyInfo';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
 
     /**
@@ -77,7 +77,7 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'GetShoppingCartNumber';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
     /**
      * 获取订单支付信息，返回还需支付信息 getOrderAmountDetail
@@ -92,7 +92,7 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'GetOrderAmountDetail';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
     /**
      * 添加至购物车 addToShoppingCart
@@ -107,7 +107,7 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'AddToShoppingCart';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
     /**
      *  批量添加至购物车 batchAddToShoppingCart
@@ -122,6 +122,6 @@ class Vendor_Shopping_Cart extends Vendor_Proxy
     {
         $criteria['Act'] = 'BatchAddToShoppingCart';
 
-        return $this->post('/', $criteria);
+        return $this->client->post('/', $criteria);
     }
 }
