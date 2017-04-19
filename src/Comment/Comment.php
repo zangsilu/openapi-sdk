@@ -19,7 +19,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @param $criteria
      *
-     * @return mixed
+     * @return array
      */
     public function getList($criteria)
     {
@@ -46,7 +46,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @param $criteria
      *
-     * @return mixed
+     * @return array
      */
     public function getCountOfCanComment($criteria)
     {
@@ -60,7 +60,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @param $criteria
      *
-     * @return mixed
+     * @return array
      */
     public function getByReplyIdValid($criteria)
     {
@@ -74,7 +74,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @param $criteria
      *
-     * @return mixed
+     * @return array
      */
     public function getByParentId($criteria)
     {
@@ -83,6 +83,15 @@ class Vendor_Comment_Comment extends Vendor_Api
         return $this->client->get($url, $criteria)->toArray();
     }
 
+    /**
+     * getByBrandId 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function getByBrandId($criteria)
     {
         $url = 'comments?act=getByBrandId';
@@ -95,7 +104,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @param $criteria
      *
-     * @return mixed
+     * @return array
      */
     public function getListByOidPidUid($criteria)
     {
@@ -109,7 +118,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @param $comment
      *
-     * @return mixed
+     * @return array
      */
     public function create($comment)
     {
@@ -118,12 +127,12 @@ class Vendor_Comment_Comment extends Vendor_Api
         return $this->client->post($url, $comment)->toArray();
     }
 
-        /**
-     * 添加评论
+    /**
+     * 获取分销订单评论
      *
-     * @param $comment
+     * @param array $distributionIds
      *
-     * @return mixed
+     * @return array
      */
     public function getDistributionOrderComment(array $distributionIds = [])
     {
