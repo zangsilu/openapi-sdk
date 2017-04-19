@@ -134,7 +134,7 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @return array
      */
-    public function getDistributionOrderComment(array $distributionIds = [])
+    public function getDistributionOrderComment(array $distributionIds)
     {
         $distributionIds = ! empty($distributionIds) ? implode(',', $distributionIds) : '';
         $url = '/?';
