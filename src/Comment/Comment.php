@@ -84,12 +84,12 @@ class Vendor_Comment_Comment extends Vendor_Api
     }
 
     /**
-     * getByBrandId 
-     * 
-     * @param mixed $criteria 
-     * 
+     * getByBrandId
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getByBrandId($criteria)

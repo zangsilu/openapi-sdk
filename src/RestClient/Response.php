@@ -37,12 +37,12 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     protected $json = '';
 
     /**
-     * __construct 
-     * 
-     * @param mixed $response 
-     * 
+     * __construct
+     *
+     * @param mixed $response
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function __construct($response)
@@ -120,12 +120,12 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
         return $this->body;
     }
     /**
-     * json 
-     * 
-     * @param mixed $assoc 
-     * 
+     * json
+     *
+     * @param mixed $assoc
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function json($assoc = true)
@@ -164,11 +164,11 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * rewind 
-     * 
-     * 
+     * rewind
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function rewind()
@@ -177,11 +177,11 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * current 
-     * 
-     * 
+     * current
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function current()
@@ -190,11 +190,11 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * key 
-     * 
-     * 
+     * key
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function key()
@@ -203,11 +203,11 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * next 
-     * 
-     * 
+     * next
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function next()
@@ -216,11 +216,11 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * valid 
-     * 
-     * 
+     * valid
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function valid()
@@ -230,12 +230,12 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * offsetExists 
-     * 
-     * @param mixed $key 
-     * 
+     * offsetExists
+     *
+     * @param mixed $key
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function offsetExists($key)
@@ -245,12 +245,12 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * offsetGet 
-     * 
-     * @param mixed $key 
-     * 
+     * offsetGet
+     *
+     * @param mixed $key
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function offsetGet($key)
@@ -264,13 +264,13 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * offsetSet 
-     * 
-     * @param mixed $key 
-     * @param mixed $value 
-     * 
+     * offsetSet
+     *
+     * @param mixed $key
+     * @param mixed $value
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function offsetSet($key, $value)
@@ -279,12 +279,12 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     }
 
     /**
-     * offsetUnset 
-     * 
-     * @param mixed $key 
-     * 
+     * offsetUnset
+     *
+     * @param mixed $key
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function offsetUnset($key)
@@ -292,11 +292,11 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
         throw new Vendor_RestClient_Exception_ArrayAccess("Decoded response data is immutable.");
     }
     /**
-     * __toString 
-     * 
-     * 
+     * __toString
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function __toString()
