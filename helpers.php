@@ -1,16 +1,16 @@
 <?php
-/**
- * array_column
- *
- * @param mixed $array
- * @param mixed $columnKey
- * @param mixed $indexKey
- *
- * @access public
- *
- * @return mixed
- */
 if (!function_exists('array_column')) {
+    /**
+     * array_column
+     *
+     * @param mixed $array
+     * @param mixed $columnKey
+     * @param mixed $indexKey
+     *
+     * @access public
+     *
+     * @return mixed
+     */
     function array_column($array, $columnKey, $indexKey = null)
     {
         $result = array();
@@ -31,6 +31,32 @@ if (!function_exists('array_column')) {
         return $result;
     }
 }
+
+if (!function_exists('array_key_exchange')) {
+    /**
+     * 替换key array_key_exchange
+     *
+     * @param array $array
+     * @param array $exchange
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    function array_key_exchange(array $array, array $exchange)
+    {
+        $result = array();
+
+        foreach ($exchange as $key => $value) {
+            if (isset($array[$key])) {
+                $result[$value] = $array[$key];
+            }
+        }
+
+        return $result;
+    }
+}
+
 if (!function_exists('apache_request_headers')) {
     /**
      * apache_request_headers
@@ -50,7 +76,16 @@ if (!function_exists('apache_request_headers')) {
         return $headers;
     }
 }
+
 if (!function_exists('is_ssl')) {
+    /**
+     * is_ssl
+     *
+     *
+     * @access public
+     *
+     * @return mixed
+     */
     function is_ssl()
     {
         if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -67,8 +102,17 @@ if (!function_exists('is_ssl')) {
         return false;
     }
 }
+
 if (!function_exists('json_last_error_msg')) {
-    function json_last_error_msg() 
+    /**
+     * json_last_error_msg
+     *
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    function json_last_error_msg()
     {
         static $ERRORS = array(
           JSON_ERROR_NONE => 'No error',
@@ -83,6 +127,7 @@ if (!function_exists('json_last_error_msg')) {
         return isset($ERRORS[$error]) ? $ERRORS[$error] : 'Unknown error';
     }
 }
+
 if (!function_exists('openApiProxy4CI')) {
 
     /**
