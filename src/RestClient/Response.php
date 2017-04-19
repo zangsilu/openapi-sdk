@@ -36,6 +36,15 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
      */
     protected $json = '';
 
+    /**
+     * __construct 
+     * 
+     * @param mixed $response 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function __construct($response)
     {
         $pattern = '#^HTTP/\d\.\d.*?$.*?\r\n\r\n#ims';
@@ -110,6 +119,15 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
     {
         return $this->body;
     }
+    /**
+     * json 
+     * 
+     * @param mixed $assoc 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function json($assoc = true)
     {
         $json = json_decode($this->body, $assoc);
@@ -145,40 +163,96 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
         return isset($this->header[$key]) ? $this->header[$key]: $default;
     }
 
-
-    // Iterable methods:
+    /**
+     * rewind 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function rewind()
     {
         return reset($this->json['ResponseData']);
     }
 
+    /**
+     * current 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function current()
     {
         return current($this->json['ResponseData']);
     }
 
+    /**
+     * key 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function key()
     {
         return key($this->json['ResponseData']);
     }
 
+    /**
+     * next 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function next()
     {
         return next($this->json['ResponseData']);
     }
 
+    /**
+     * valid 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function valid()
     {
         return is_array($this->json['ResponseData'])
             && (key($this->json['ResponseData']) !== null);
     }
 
+    /**
+     * offsetExists 
+     * 
+     * @param mixed $key 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function offsetExists($key)
     {
         return is_array($this->json['ResponseData'])?
             isset($this->json['ResponseData'][$key]) : false;
     }
 
+    /**
+     * offsetGet 
+     * 
+     * @param mixed $key 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function offsetGet($key)
     {
         if (!$this->offsetExists($key)) {
@@ -189,15 +263,42 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
             $this->json['ResponseData'][$key] : null;
     }
 
+    /**
+     * offsetSet 
+     * 
+     * @param mixed $key 
+     * @param mixed $value 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function offsetSet($key, $value)
     {
         throw new Vendor_RestClient_Exception_ArrayAccess("Decoded response data is immutable.");
     }
 
+    /**
+     * offsetUnset 
+     * 
+     * @param mixed $key 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function offsetUnset($key)
     {
         throw new Vendor_RestClient_Exception_ArrayAccess("Decoded response data is immutable.");
     }
+    /**
+     * __toString 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
     public function __toString()
     {
         return $this->body;
