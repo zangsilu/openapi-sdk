@@ -36,15 +36,15 @@ class Vendor_Goods_Product extends Vendor_Api
         return $this->client->get($url, $criteria)->toArray();
     }
     /**
-     * getList 
-     * 
-     * @param mixed $criteria 
-     * @param string $orderSort 
-     * @param int $limit 
-     * @param mixed $offset 
-     * 
+     * getList
+     *
+     * @param mixed $criteria
+     * @param string $orderSort
+     * @param int $limit
+     * @param mixed $offset
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getList($criteria, $orderSort = '', $limit = 0, $offset = -1)

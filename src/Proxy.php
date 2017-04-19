@@ -33,10 +33,18 @@ class Vendor_Proxy
         );
         $this->proxy = rtrim(preg_replace('#/v\d+(.\d+)?#', '', $config['base_url']), '/');
         $options = isset($config['options'])? $config['options']: array();
-        $options['headers']['x-api-proxy'] = 'Api-Proxy';
-        $client = new Vendor_RestClient($appId, $appSecret, $this->proxy, $options);
-        $this->client = $client;
+        $this->client = new Vendor_RestClient($appId, $appSecret, $this->proxy, $options);
     }
+    /**
+     * __call
+     *
+     * @param mixed $method
+     * @param mixed $args
+     *
+     * @access public
+     *
+     * @return mixed
+     */
     public function __call($method, $args)
     {
         $url      = $args[0];

@@ -16,16 +16,16 @@ class Vendor_Arch_Replace extends Vendor_Api
 {
     /**
      * delete
-     * 
-     * @param array $criteria 
-     * 
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function delete($criteria = array())
     {
-       $url = 'search/replace';
-       return $this->client->delete($url, $criteria)->toArray();
+        $url = 'search/replace';
+        return $this->client->delete($url, $criteria)->toArray();
     }
 }

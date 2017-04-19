@@ -59,7 +59,7 @@ if (!function_exists('is_ssl')) {
             return true;
         } elseif (isset($_SERVER['HTTP_HTTPS']) && $_SERVER['HTTP_HTTPS'] == 'on') {
             return true;
-        }  elseif (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] === 'https') {
+        } elseif (isset($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] === 'https') {
             return true;
         } elseif (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] === '443') {
             return true;
@@ -68,19 +68,20 @@ if (!function_exists('is_ssl')) {
     }
 }
 if (!function_exists('json_last_error_msg')) {
-	function json_last_error_msg() {
-		static $ERRORS = array(
-				JSON_ERROR_NONE => 'No error',
-				JSON_ERROR_DEPTH => 'Maximum stack depth exceeded',
-				JSON_ERROR_STATE_MISMATCH => 'State mismatch (invalid or malformed JSON)',
-				JSON_ERROR_CTRL_CHAR => 'Control character error, possibly incorrectly encoded',
-				JSON_ERROR_SYNTAX => 'Syntax error',
-				JSON_ERROR_UTF8 => 'Malformed UTF-8 characters, possibly incorrectly encoded'
-				);
+    function json_last_error_msg()
+    {
+        static $ERRORS = array(
+                JSON_ERROR_NONE => 'No error',
+                JSON_ERROR_DEPTH => 'Maximum stack depth exceeded',
+                JSON_ERROR_STATE_MISMATCH => 'State mismatch (invalid or malformed JSON)',
+                JSON_ERROR_CTRL_CHAR => 'Control character error, possibly incorrectly encoded',
+                JSON_ERROR_SYNTAX => 'Syntax error',
+                JSON_ERROR_UTF8 => 'Malformed UTF-8 characters, possibly incorrectly encoded'
+                );
 
-		$error = json_last_error();
-		return isset($ERRORS[$error]) ? $ERRORS[$error] : 'Unknown error';
-	}
+        $error = json_last_error();
+        return isset($ERRORS[$error]) ? $ERRORS[$error] : 'Unknown error';
+    }
 }
 if (!function_exists('openApiProxy4CI')) {
 
@@ -126,6 +127,8 @@ if (!function_exists('openApiProxy4CI')) {
             $config['version'],
             $CI->input->server('HTTP_USER_AGENT')
         );
+        $config['options']['headers']['x-api-proxy'] = 'Api-Proxy';
+
         $proxy = new Vendor_Proxy($config);
         $method = $CI->input->server('REQUEST_METHOD');
         return $proxy->$method($url, $_POST);

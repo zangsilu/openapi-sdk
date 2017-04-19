@@ -37,18 +37,17 @@ class Vendor_Stock extends Vendor_Api
         
         $storage  = isset($criteria['storage'])? $criteria['storage'] : '';
         $storages = array(0);
-        if ($storage){
+        if ($storage) {
             $storages = explode(',', $criteria['storage']);
         }
         $stocks =  array();
         foreach (array_chunk($results['productIds'], 100) as $chunk) {
             foreach ($storages as $storage) {
-                $values = $this->calculateMulti(implode(',', $chunk),0,$storage,'',0, 1);
-                foreach ($values as $key=>$value){
+                $values = $this->calculateMulti(implode(',', $chunk), 0, $storage, '', 0, 1);
+                foreach ($values as $key => $value) {
                     $stocks[$storage][$key] =  $value;
                 }
             }
-
         }
         unset($results['productIds']);
         $results['stocks'] = $stocks;

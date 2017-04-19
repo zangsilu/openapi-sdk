@@ -15,17 +15,17 @@
 class Vendor_Arch extends Vendor_Api
 {
     /**
-     * search 
-     * 
-     * @param array $criteria 
-     * 
+     * search
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function search($criteria = array())
     {
-       $url = 'search';
-       return $this->client->get($url, $criteria)->toArray();
+        $url = 'search';
+        return $this->client->get($url, $criteria)->toArray();
     }
 }
