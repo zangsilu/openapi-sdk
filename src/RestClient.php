@@ -215,7 +215,7 @@ class Vendor_RestClient
         $vars['x-api-proxy-app-id'] = $appId;
         $parameter = $vars;
         if (($pos = strpos($url, '?')) !== false) {
-            parse_str(substr($url, $pos), $newVars);
+            parse_str(substr($url, $pos + 1), $newVars);
             $parameter = $parameter + $newVars ;
         }
 
