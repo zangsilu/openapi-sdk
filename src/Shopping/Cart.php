@@ -29,7 +29,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartDetailV2';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?GetShoppingCartDetailV2', $criteria);
     }
 
     /**
@@ -45,7 +45,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'ModifyShoppingCartGoodsNumber';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?ModifyShoppingCartGoodsNumber', $criteria);
     }
 
     /**
@@ -61,7 +61,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartMoneyInfo';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?GetShoppingCartMoneyInfo', $criteria);
     }
 
     /**
@@ -77,7 +77,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartNumber';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?GetShoppingCartNumber', $criteria);
     }
     /**
      * 获取订单支付信息，返回还需支付信息 getOrderAmountDetail
@@ -92,7 +92,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetOrderAmountDetail';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?GetOrderAmountDetail', $criteria);
     }
     /**
      * 添加至购物车 addToShoppingCart
@@ -107,7 +107,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'AddToShoppingCart';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?AddToShoppingCart', $criteria);
     }
     /**
      *  批量添加至购物车 batchAddToShoppingCart
@@ -122,6 +122,36 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'BatchAddToShoppingCart';
 
-        return $this->client->post('/', $criteria);
+        return $this->client->post('/?BatchAddToShoppingCart', $criteria);
     }
+    /**
+     * 获取换购商品列表 getChangeBuyList
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getChangeBuyList($criteria)
+    {
+        $criteria['Act'] = 'GetChangeBuyList';
+
+        return $this->client->post('/?GetChangeBuyList', $criteria);
+    }
+    /**
+     * 重新选择换购商品 changeBuyGoods
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function changeBuyGoods($criteria)
+    {
+        $criteria['Act'] = 'ChangeBuyGoods';
+
+        return $this->client->post('/?ChangeBuyGoods', $criteria);
+    } 
 }
