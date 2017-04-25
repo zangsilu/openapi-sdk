@@ -29,4 +29,20 @@ class Vendor_Promotion_SecKill extends Vendor_Api
 
         return $this->client->get($url, $criteria)->toArray();
     }
+
+    /**
+     * getSecKillGoodsListByActivityIds
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getSecKillGoodsListByActivityIds($criteria)
+    {
+        $url = 'promotion/seckill?act=getSecKillGoodsListByActivityIds';
+
+        return $this->client->get($url, $criteria)->toArray();
+    }
 }
