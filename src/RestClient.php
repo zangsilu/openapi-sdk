@@ -46,7 +46,7 @@ class Vendor_RestClient
                 'user_agent'    => "open api sdk/1.0",
                 'curl_options'  => array(
                     CURLOPT_CONNECTTIMEOUT =>5,
-                    CURLOPT_TIMEOUT => 5000,
+                    CURLOPT_TIMEOUT => 5,
                     CURLOPT_DNS_CACHE_TIMEOUT=>7200,
                     CURLOPT_HEADER => true
                 ),
