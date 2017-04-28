@@ -86,4 +86,21 @@ class Vendor_Goods_Product extends Vendor_Api
 
         return $this->client->put($url, $criteria)->toArray();
     }
+
+    /**
+     * 获取商品详情 getShoppingMallGoodsDetail
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     *
+     * @return mixed
+     */
+    public function getShoppingMallGoodsDetail($criteria)
+    {
+        $criteria['Act'] = 'GetShoppingMallGoodsDetail';
+
+        return $this->client->post('?GetShoppingMallGoodsDetail', $criteria);
+    }
 }
