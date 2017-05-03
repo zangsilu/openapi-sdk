@@ -153,5 +153,19 @@ class Vendor_Shopping_Cart extends Vendor_Api
         $criteria['Act'] = 'ChangeBuyGoods';
 
         return $this->client->post('?ChangeBuyGoods', $criteria);
-    } 
+    }
+
+    /**
+     * 根据商品获取其在购物车中的数量
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getProductNumberByProduct($criteria)
+    {
+        $criteria['Act'] = 'GetShoppingCartNumber';
+
+        return $this->client->post('?GetShoppingCartNumber', $criteria);
+    }
 }
