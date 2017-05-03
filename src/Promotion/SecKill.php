@@ -3,7 +3,7 @@
  * Vendor_Promotion_SecKill
  *
  * PHP version 5.2+
- * 
+ *
  * @category  Promotion
  * @package   Vendor\Promotion
  * @author    wangaibo <wangaibo@boqii.net>
