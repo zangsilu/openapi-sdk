@@ -168,4 +168,18 @@ class Vendor_Shopping_Cart extends Vendor_Api
 
         return $this->client->post('?GetShoppingCartNumber', $criteria);
     }
+
+    /**
+     * 获取初始化的购物车数据 (临时接口，购物车迁移完毕后删除)
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getInitCartProduct($criteria)
+    {
+        $criteria['Act'] = 'GetInitCartProduct';
+
+        return $this->client->post('?GetInitCartProduct', $criteria);
+    }
 }
