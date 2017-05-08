@@ -182,4 +182,32 @@ class Vendor_Shopping_Cart extends Vendor_Api
 
         return $this->client->post('?GetInitCartProduct', $criteria);
     }
+    /**
+     * 获取初始化的购物车数据 (临时接口，购物车迁移完毕后删除)
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getInitCartShowInfo($criteria)
+    {
+        $criteria['Act'] = 'GetInitCartShowInfo';
+
+        return $this->client->post('?GetInitCartShowInfo', $criteria);
+    }
+
+    /**
+     * 清除商品数量的缓存
+     *
+     * @param $criteria
+     *
+     * @return bool
+     */
+    public function flushShoppingCartNumber($criteria){
+        $criteria['Act'] = 'FlushShoppingCartNumber';
+        if (! isset($criteria['UserId']) || empty($criteria['UserId'])){
+            return false;
+        }
+        return $this->client->post('?FlushShoppingCartNumber', $criteria);
+    }
 }
