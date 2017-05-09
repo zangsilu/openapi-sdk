@@ -203,9 +203,10 @@ class Vendor_Shopping_Cart extends Vendor_Api
      *
      * @return bool
      */
-    public function flushShoppingCartNumber($criteria){
+    public function flushShoppingCartNumber($criteria)
+    {
         $criteria['Act'] = 'FlushShoppingCartNumber';
-        if (! isset($criteria['UserId']) || empty($criteria['UserId'])){
+        if (! isset($criteria['UserId']) || empty($criteria['UserId'])) {
             return false;
         }
         return $this->client->post('?FlushShoppingCartNumber', $criteria);
