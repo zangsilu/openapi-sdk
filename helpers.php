@@ -56,6 +56,35 @@ if (!function_exists('array_key_exchange')) {
         return $result;
     }
 }
+if (!function_exists('array_key_exchange_only')) {
+    /**
+     * 替换key array_key_exchange_only
+     *
+     * @param array $array
+     * @param array $exchange
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    function array_key_exchange_only(array $array, array $exchange)
+    {
+        foreach ($array as $assoc => $values) {
+            $items = array(); 
+            foreach ($values as $key=>$value) {
+                if (isset($exchange[$key])) {
+                    $items[$exchange[$key]] = $value;
+                } else {
+                    $items[$key] = $value;
+                }
+            }
+            $array[$assoc] = $items;
+
+        }
+
+        return $array;
+    }
+}
 
 if (!function_exists('apache_request_headers')) {
     /**
@@ -114,7 +143,7 @@ if (!function_exists('json_last_error_msg')) {
      */
     function json_last_error_msg()
     {
-        static $ERRORS = array(
+        static $errors = array(
           JSON_ERROR_NONE => 'No error',
           JSON_ERROR_DEPTH => 'Maximum stack depth exceeded',
           JSON_ERROR_STATE_MISMATCH => 'State mismatch (invalid or malformed JSON)',
@@ -123,8 +152,8 @@ if (!function_exists('json_last_error_msg')) {
           JSON_ERROR_UTF8 => 'Malformed UTF-8 characters, possibly incorrectly encoded'
           );
 
-        $error = json_last_error();
-        return isset($ERRORS[$error]) ? $ERRORS[$error] : 'Unknown error';
+        $err_no = json_last_error();
+        return isset($errors[$err_no]) ? $errors[$err_no] : 'Unknown error';
     }
 }
 
