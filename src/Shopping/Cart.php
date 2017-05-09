@@ -180,7 +180,46 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetInitCartProduct';
 
-        return $this->client->post('?GetInitCartProduct', $criteria);
+        $response = $this->client->post('?GetInitCartProduct', $criteria)->toArray();
+        $exchange = array(
+            'expressType'        => 'exType',
+            'selfGoodsNum'       => 'globalGoodsSelfNum',
+            'packageDiscount'    => 'packageOrderDiscount',
+            'productList'        => 'products',
+        );
+        $response = current(array_key_exchange_only(array($response), $exchange));
+        $goodsExchange = array(
+            'attrid'        => 'attr',
+            'productid'     => 'pid',
+            'giftList'      => 'gift',
+            'isTeamBuy'     => 'isTeambuy',
+            'isFare'        => 'isfare',
+            'number'        => 'num',
+            'DiscountPrice' => 'discountPrice',
+            'showColor'     => 'color',
+            'showSize'      => 'size',
+            'GoodsPrice'    => 'price',
+            'beanNum'       => 'bean',
+            'isGlobal'      => 'isglobal',
+        );
+        $response['products'] = array_key_exchange_only($response['products'], $goodsExchange);
+
+        $exchange = array(
+            'ifWillSell'          => 'if_will_sell',
+            'willSellStock'       => 'will_sell_stock',
+            'isFare'              => 'isfare',
+            'goodsList'           => 'needGoods',
+            'isGlobal'            => 'isglobal',
+            'giftList'            => 'validGift',
+            'barterList'          => 'barter',
+        );
+        $response['displayActiveList'] = array_key_exchange_only($response['displayActiveList'], $exchange);
+        foreach ($response['displayActiveList'] as $key => $activity) {
+            $activity['needGoods'] = array_key_exchange_only($activity['needGoods'], $goodsExchange);
+            $response['displayActiveList'][$key] = $activity;
+        }
+
+        return $response;
     }
     /**
      * 获取初始化的购物车数据 (临时接口，购物车迁移完毕后删除)
