@@ -80,21 +80,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
         return $this->client->post('?GetShoppingCartNumber', $criteria);
     }
     /**
-     * 获取订单支付信息，返回还需支付信息 getOrderAmountDetail
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function getOrderAmountDetail($criteria)
-    {
-        $criteria['Act'] = 'GetOrderAmountDetail';
-
-        return $this->client->post('?GetOrderAmountDetail', $criteria);
-    }
-    /**
      * 添加至购物车 addToShoppingCart
      *
      * @param mixed $criteria
@@ -124,37 +109,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
 
         return $this->client->post('?BatchAddToShoppingCart', $criteria);
     }
-    /**
-     * 获取换购商品列表 getChangeBuyList
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function getChangeBuyList($criteria)
-    {
-        $criteria['Act'] = 'GetChangeBuyList';
-
-        return $this->client->post('?GetChangeBuyList', $criteria);
-    }
-    /**
-     * 重新选择换购商品 changeBuyGoods
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function changeBuyGoods($criteria)
-    {
-        $criteria['Act'] = 'ChangeBuyGoods';
-
-        return $this->client->post('?ChangeBuyGoods', $criteria);
-    }
-
     /**
      * 根据商品获取其在购物车中的数量
      *
