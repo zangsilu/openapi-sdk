@@ -4,8 +4,8 @@
  *
  * PHP version 5.2+
  *
- * @category  Cart
- * @package   Vendor\Cart
+ * @category  Shopping
+ * @package   Vendor\Shopping
  * @author    Guojing Liu <liugj@boqii.com>
  * @copyright 2016-2019 guangcheng Co. All Rights Reserved.
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
@@ -46,22 +46,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
         $criteria['Act'] = 'ModifyShoppingCartGoodsNumber';
 
         return $this->client->post('?ModifyShoppingCartGoodsNumber', $criteria);
-    }
-
-    /**
-     * 获取购物车金额信息 getShoppingCartMoneyInfo
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function getShoppingCartMoneyInfo($criteria)
-    {
-        $criteria['Act'] = 'GetShoppingCartMoneyInfo';
-
-        return $this->client->post('?GetShoppingCartMoneyInfo', $criteria);
     }
 
     /**
