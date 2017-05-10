@@ -201,6 +201,11 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'GoodsPrice'    => 'price',
             'beanNum'       => 'bean',
             'isGlobal'      => 'isglobal',
+            'isStopBuy'     => 'isstopbuy',
+            'isSharedCoupon'=> 'ispublicuse',
+            'LimitMaxNumber'=> 'mostbuy',
+            'LimitMinNumber'=> 'minbuy',
+            'picpath'       => 'img',
         );
         $response['products'] = array_key_exchange_only($response['products'], $goodsExchange);
 
@@ -212,6 +217,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'isGlobal'            => 'isglobal',
             'giftList'            => 'validGift',
             'barterList'          => 'barter',
+            'beanNum'             => 'bean',
         );
         $response['displayActiveList'] = array_key_exchange_only($response['displayActiveList'], $exchange);
         foreach ($response['displayActiveList'] as $key => $activity) {
