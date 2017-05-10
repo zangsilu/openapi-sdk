@@ -4,8 +4,8 @@
  *
  * PHP version 5.2+
  *
- * @category  Cart
- * @package   Vendor\Cart
+ * @category  Shopping
+ * @package   Vendor\Shopping
  * @author    Guojing Liu <liugj@boqii.com>
  * @copyright 2016-2019 guangcheng Co. All Rights Reserved.
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
@@ -49,22 +49,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
     }
 
     /**
-     * 获取购物车金额信息 getShoppingCartMoneyInfo
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function getShoppingCartMoneyInfo($criteria)
-    {
-        $criteria['Act'] = 'GetShoppingCartMoneyInfo';
-
-        return $this->client->post('?GetShoppingCartMoneyInfo', $criteria);
-    }
-
-    /**
      * 获取购物车商品数量 getShoppingCartNumber
      *
      * @param mixed $criteria
@@ -78,21 +62,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
         $criteria['Act'] = 'GetShoppingCartNumber';
 
         return $this->client->post('?GetShoppingCartNumber', $criteria);
-    }
-    /**
-     * 获取订单支付信息，返回还需支付信息 getOrderAmountDetail
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function getOrderAmountDetail($criteria)
-    {
-        $criteria['Act'] = 'GetOrderAmountDetail';
-
-        return $this->client->post('?GetOrderAmountDetail', $criteria);
     }
     /**
      * 添加至购物车 addToShoppingCart
@@ -124,37 +93,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
 
         return $this->client->post('?BatchAddToShoppingCart', $criteria);
     }
-    /**
-     * 获取换购商品列表 getChangeBuyList
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function getChangeBuyList($criteria)
-    {
-        $criteria['Act'] = 'GetChangeBuyList';
-
-        return $this->client->post('?GetChangeBuyList', $criteria);
-    }
-    /**
-     * 重新选择换购商品 changeBuyGoods
-     *
-     * @param mixed $criteria
-     *
-     * @access public
-     *
-     * @return mixed
-     */
-    public function changeBuyGoods($criteria)
-    {
-        $criteria['Act'] = 'ChangeBuyGoods';
-
-        return $this->client->post('?ChangeBuyGoods', $criteria);
-    }
-
     /**
      * 根据商品获取其在购物车中的数量
      *
@@ -297,9 +235,10 @@ class Vendor_Shopping_Cart extends Vendor_Api
      *
      * @return bool
      */
-    public function flushShoppingCartNumber($criteria){
+    public function flushShoppingCartNumber($criteria)
+    {
         $criteria['Act'] = 'FlushShoppingCartNumber';
-        if (! isset($criteria['UserId']) || empty($criteria['UserId'])){
+        if (! isset($criteria['UserId']) || empty($criteria['UserId'])) {
             return false;
         }
         return $this->client->post('?FlushShoppingCartNumber', $criteria);
