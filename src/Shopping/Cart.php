@@ -134,7 +134,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'giftList'      => 'gift',
             'isTeamBuy'     => 'isTeambuy',
             'isFare'        => 'isfare',
-            'DiscountPrice' => 'discountPrice',
+            'DiscountPrice' => array('discountPrice', 'discountprice'),
             'showColor'     => 'color',
             'showSize'      => 'size',
             'GoodsPrice'    => 'price',
@@ -147,7 +147,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'picpath'       => 'img',
         );
         $response['products'] = array_key_exchange_only($response['products'], $goodsExchange);
-
         $exchange = array(
             'ifWillSell'          => 'if_will_sell',
             'willSellStock'       => 'will_sell_stock',
