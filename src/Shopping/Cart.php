@@ -178,6 +178,9 @@ class Vendor_Shopping_Cart extends Vendor_Api
         $criteria['Act'] = 'GetInitCartShowInfo';
 
         $response = $this->client->post('?GetInitCartShowInfo', $criteria)->toArray();
+        if (!$response) {
+            return $response;
+        }
         $exchange = array(
             'isFare'             => 'isfare',
             'isTeamBuy'          => 'isTeambuy',
@@ -228,7 +231,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
             $response['packageList'][$cartId] = $newPackage;
         }
 
-        return $response;
+        return array_values($response);
     }
 
     /**
