@@ -202,6 +202,8 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'ifWillSell'         => 'if_will_sell',
             'willSellStock'      => 'will_sell_stock',
             'teamBuyId'          => 'teambuyId',
+            'GoodsPrice'         => 'price',
+            'DiscountPrice'      => 'discountPrice',
         );
         $response['noActiveGoods'] = array_key_exchange_only($response['noActiveGoods'], $exchange);
         $giftChange = array(
