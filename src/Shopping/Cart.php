@@ -131,17 +131,20 @@ class Vendor_Shopping_Cart extends Vendor_Api
         $response = current(array_key_exchange_only(array($response), $exchange));
         $goodsExchange = array(
             'attrid'        => 'attr',
-            'productid'     => 'pid',
             'giftList'      => 'gift',
             'isTeamBuy'     => 'isTeambuy',
             'isFare'        => 'isfare',
-            'number'        => 'num',
             'DiscountPrice' => 'discountPrice',
             'showColor'     => 'color',
             'showSize'      => 'size',
             'GoodsPrice'    => 'price',
             'beanNum'       => 'bean',
             'isGlobal'      => 'isglobal',
+            'isStopBuy'     => 'isstopbuy',
+            'isSharedCoupon'=> 'ispublicuse',
+            'LimitMaxNumber'=> 'mostbuy',
+            'LimitMinNumber'=> 'minbuy',
+            'picpath'       => 'img',
         );
         $response['products'] = array_key_exchange_only($response['products'], $goodsExchange);
 
@@ -153,6 +156,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'isGlobal'            => 'isglobal',
             'giftList'            => 'validGift',
             'barterList'          => 'barter',
+            'beanNum'             => 'bean',
         );
         $response['displayActiveList'] = array_key_exchange_only($response['displayActiveList'], $exchange);
         foreach ($response['displayActiveList'] as $key => $activity) {
@@ -173,7 +177,58 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetInitCartShowInfo';
 
-        return $this->client->post('?GetInitCartShowInfo', $criteria);
+        $response = $this->client->post('?GetInitCartShowInfo', $criteria)->toArray();
+        $exchange = array(
+            'isFare'             => 'isfare',
+            'isTeamBuy'          => 'isTeambuy',
+            'giftList'           => 'gift',
+            'attrid'             => 'attr',
+            'showColor'          => 'color',
+            'showSize'           => 'size',
+            'beanNum'            => 'bean',
+            'isStopBuy'          => 'isstopbuy',
+            'limitBuyNum'        => 'stopbuynum',
+            'LimitMinNumber'     => 'minbuy',
+            'LimitMaxNumber'     => 'mostbuy',
+            'isSharedCoupon'     => 'ispublicuse',
+            'picpath'            => 'img',
+            'goodsList'          => 'needGoods',
+            'barterList'         => 'barter',
+            'packageList'        => 'package',
+            'isGlobal'           => 'isglobal',
+            'ifWillSell'         => 'if_will_sell',
+            'willSellStock'      => 'will_sell_stock',
+            'teamBuyId'          => 'teambuyId',
+        );
+        $response['noActiveGoods'] = array_key_exchange_only($response['noActiveGoods'], $exchange);
+        $giftChange = array(
+            'picpath' => 'img',
+        );
+        foreach ($response['noActiveGoods'] as $key => $product) {
+            $product['gift'] = array_key_exchange_only($product['gift'], $giftChange);
+            $response['noActiveGoods'][$key] = $product;
+        }
+        $response['showActiveList'] = array_key_exchange_only($response['showActiveList'], $exchange);
+        foreach ($response['showActiveList'] as $activeId => $active)
+        {
+            $active['needGoods'] = array_key_exchange_only($active['needGoods'], $exchange);
+            $response['showActiveList'][$activeId] = $active;
+        }
+        $exchange['GoodsPrice'] = 'cast';
+        foreach ($response['packageList'] as $cartId => $package) {
+            $newPackage = array();
+            foreach ($package as $key => $product) {
+                $product = current(array_key_exchange_only(array($product), $exchange));
+                if ($product['otype'] == 0) {
+                    $newPackage['mainGood'] = $product;
+                } elseif ($product['otype'] == 9) {
+                    $newPackage['byGoods'][] = $product;
+                }
+            }
+            $response['packageList'][$cartId] = $newPackage;
+        }
+
+        return $response;
     }
 
     /**
