@@ -73,7 +73,13 @@ if (!function_exists('array_key_exchange_only')) {
             $items = array(); 
             foreach ($values as $key=>$value) {
                 if (isset($exchange[$key])) {
-                    $items[$exchange[$key]] = $value;
+                    if (is_array($exchange[$key])) {
+                        foreach ($exchange[$key] as $newKey) {
+                            $items[$newKey] = $value;
+                        }
+                    } else {
+                        $items[$exchange[$key]] = $value;
+                    }
                 } else {
                     $items[$key] = $value;
                 }
