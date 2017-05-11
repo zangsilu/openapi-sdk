@@ -119,6 +119,9 @@ class Vendor_Shopping_Cart extends Vendor_Api
         $criteria['Act'] = 'GetInitCartProduct';
 
         $response = $this->client->post('?GetInitCartProduct', $criteria)->toArray();
+        if (!$response){
+            return $response;
+        }
         $exchange = array(
             'expressType'        => 'exType',
             'selfGoodsNum'       => 'globalGoodsSelfNum',
