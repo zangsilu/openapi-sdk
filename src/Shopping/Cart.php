@@ -203,6 +203,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
             'teamBuyId'          => 'teambuyId',
             'GoodsPrice'         => 'price',
             'DiscountPrice'      => 'discountPrice',
+            'ActionTags'         => 'tags',
         );
         $response['noActiveGoods'] = array_key_exchange_only($response['noActiveGoods'], $exchange);
         $giftChange = array(
