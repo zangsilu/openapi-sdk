@@ -213,13 +213,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
             $product['gift'] = array_key_exchange_only($product['gift'], $giftChange);
             $response['noActiveGoods'][$key] = $product;
         }
-        $exchange['giftList'] = 'validGift';
-        $response['showActiveList'] = array_key_exchange_only($response['showActiveList'], $exchange);
-        foreach ($response['showActiveList'] as $activeId => $active)
-        {
-            $active['needGoods'] = array_key_exchange_only($active['needGoods'], $exchange);
-            $response['showActiveList'][$activeId] = $active;
-        }
         foreach ($response['packageList'] as $cartId => $package) {
             $newPackage = array();
             foreach ($package as $key => $product) {
@@ -231,6 +224,17 @@ class Vendor_Shopping_Cart extends Vendor_Api
                 }
             }
             $response['packageList'][$cartId] = $newPackage;
+        }
+        foreach ($response['barterList'] as $key => $barter)
+        {
+            $response['barterList'][$key] = array_key_exchange_only($barter, $exchange);
+        }
+        $exchange['giftList'] = 'validGift';
+        $response['showActiveList'] = array_key_exchange_only($response['showActiveList'], $exchange);
+        foreach ($response['showActiveList'] as $activeId => $active)
+        {
+            $active['needGoods'] = array_key_exchange_only($active['needGoods'], $exchange);
+            $response['showActiveList'][$activeId] = $active;
         }
 
         return array_values($response);
