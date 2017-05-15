@@ -162,6 +162,13 @@ class Vendor_Shopping_Cart extends Vendor_Api
             $activity['needGoods'] = array_key_exchange_only($activity['needGoods'], $goodsExchange);
             $response['displayActiveList'][$key] = $activity;
         }
+        foreach ($response['products'] as $key => $product) {
+            if (!isset($product['activeIds']) || empty($product['activeIds'])) {
+                continue;
+            }
+            $product['activeIds'] = array_key_exchange_only($product['activeIds'], $exchange);
+            $response['products'][$key] = $product;
+        }
 
         return $response;
     }
