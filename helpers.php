@@ -185,8 +185,8 @@ if (!function_exists('openApiProxy4CI')) {
         $referer = sprintf('http://%s%s', $CI->input->server('HTTP_HOST'), $CI->input->server('REQUEST_URI'));
         $config['options']['curl_options'] = array(
                 CURLOPT_REFERER => $referer,
-                CURLOPT_CONNECTTIMEOUT =>5,
-                CURLOPT_TIMEOUT => 60,
+                CURLOPT_CONNECTTIMEOUT =>3,
+                CURLOPT_TIMEOUT =>3,
                 CURLOPT_DNS_CACHE_TIMEOUT=>7200,
                 CURLOPT_HEADER => true
                 );
