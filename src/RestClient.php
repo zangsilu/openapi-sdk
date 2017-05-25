@@ -213,6 +213,8 @@ class Vendor_RestClient
         $appId = $this->options['access_app_id'];
         $token = $this->options['access_app_secret'];
         $vars['x-api-proxy-app-id'] = $appId;
+        $vars['x-api-proxy-nonce']  = $this->genRandStr(10);
+        $vars['x-api-proxy-timestamp']  = microtime(true);
         $parameter = $vars;
         if (($pos = strpos($url, '?')) !== false) {
             parse_str(substr($url, $pos + 1), $newVars);
