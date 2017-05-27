@@ -36,6 +36,20 @@ class Vendor_Recommend_Product extends Vendor_Api
         return $this->client->get($url, $criteria);
     }
     /**
+     * 同款商品 same
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function same($criteria)
+    {
+        $url = 'recommend/products?act=same';
+        return $this->client->get($url, $criteria);
+    }
+    /**
      * show
      *
      * @param array $criteria
