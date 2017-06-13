@@ -70,8 +70,8 @@ if (!function_exists('array_key_exchange_only')) {
     function array_key_exchange_only(array $array, array $exchange)
     {
         foreach ($array as $assoc => $values) {
-            $items = array(); 
-            foreach ($values as $key=>$value) {
+            $items = array();
+            foreach ($values as $key => $value) {
                 if (isset($exchange[$key])) {
                     if (is_array($exchange[$key])) {
                         foreach ($exchange[$key] as $newKey) {
@@ -85,7 +85,6 @@ if (!function_exists('array_key_exchange_only')) {
                 }
             }
             $array[$assoc] = $items;
-
         }
 
         return $array;
@@ -211,6 +210,7 @@ if (!function_exists('openApiProxy4CI')) {
 
         $proxy = new Vendor_Proxy($config);
         $method = $CI->input->server('REQUEST_METHOD');
+        $url .= (strpos($url, '?') !== false ? '&' :'?').http_build_query($_POST);
         return $proxy->$method($url, $_POST);
     }
 }
