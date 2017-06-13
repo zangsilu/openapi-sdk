@@ -199,18 +199,21 @@ if (!function_exists('openApiProxy4CI')) {
         }
 
         $version = trim(str_replace('applicationv', '', APPPATH), '/');
+        $act = isset($_POST['Act']) ? $_POST['Act'] : '';
+
         $config['options']['user_agent'] = sprintf(
-            'Shop Open Api Sdk/%s(%s)->%s %s',
+            'Shop Open Api Sdk/%s(%s)->%s %s %s',
             $version,
             $config['app_id'],
             $config['version'],
-            $CI->input->server('HTTP_USER_AGENT')
+            $CI->input->server('HTTP_USER_AGENT'),
+            $act
         );
         $config['options']['headers']['x-api-proxy'] = 'Api-Proxy';
 
         $proxy = new Vendor_Proxy($config);
         $method = $CI->input->server('REQUEST_METHOD');
-        $url .= (strpos($url, '?') !== false ? '&' :'?').http_build_query($_POST);
+        //$url .= (strpos($url, '?') !== false ? '&' :'?').http_build_query($_POST);
         return $proxy->$method($url, $_POST);
     }
 }
