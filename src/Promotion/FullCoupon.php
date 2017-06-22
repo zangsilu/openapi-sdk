@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Vendor_Promotion_FullCoupon
  *
@@ -15,26 +16,18 @@
 class Vendor_Promotion_FullCoupon extends Vendor_Api
 {
     /**
-     * 批量获取商品是否有满赠券信息
-     * @param array $params array('productids' => '123, 456')
-     * @return mixed  array(.... 'list' => ['123' => 1, '456' => 0 ]....)
+     * pushOrder
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
      */
-    public function getCouponsForGoodsList($params)
+    public function pushOrder($criteria)
     {
-        $url = 'promotion/fullcoupon?act=getCouponsForGoodsList';
+        $url = 'promotion/full_coupon/push_order';
 
-        return $this->client->get($url, $params)->toArray();
-    }
-
-    /**
-     * 获取单个商品所有的满赠券信息
-     * @param $params array('productid' => 123)
-     * @return mixed array(... 'list' =>[['title' => '', 'description' => '',], ['title' => '', 'description' => '',]] )
-     */
-    public function getCouponsForGoodsDetail($params)
-    {
-        $url = 'promotion/fullcoupon?act=getCouponsForGoodsDetail';
-
-        return $this->client->get($url, $params)->toArray();
+        return $this->client->get($url, $criteria)->toArray();
     }
 }
