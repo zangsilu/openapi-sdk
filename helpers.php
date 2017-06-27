@@ -176,13 +176,11 @@ if (!function_exists('openApiProxy4CI')) {
      */
     function openApiProxy4CI($url, $channel = 'shop')
     {
-        $CI =& get_instance();
-        $CI->config->load('open-api-sdk', true);
+        include APPPATH .'/config/' . ENVIRONMENT. '/open-api-sdk.php';
+        $openApiSdkConfig = $config[$channel];
 
-        $config = $CI->config->item($channel, 'open-api-sdk');
-
-        $referer = sprintf('http://%s%s', $CI->input->server('HTTP_HOST'), $CI->input->server('REQUEST_URI'));
-        $config['options']['curl_options'] = array(
+        $referer = sprintf('http://%s%s', $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI']);
+        $openApiSdkConfig['options']['curl_options'] = array(
                 CURLOPT_REFERER => $referer,
                 CURLOPT_CONNECTTIMEOUT => 10,
                 CURLOPT_TIMEOUT => 10,
@@ -190,30 +188,30 @@ if (!function_exists('openApiProxy4CI')) {
                 CURLOPT_HEADER => true
                 );
 
-        $config['options']['headers'] = array('Expect'=>'','Connection'=> 'keep-alive');
-        $uniqueId = $CI->input->server('HTTP_UNIQUE_ID')?
-                          $CI->input->server('HTTP_UNIQUE_ID') : uniqid($config['app_id'].'.', true);
-        $config['options']['headers']['unique-id'] = $uniqueId;
+        $openApiSdkConfig['options']['headers'] = array('Expect'=>'','Connection'=> 'keep-alive');
+        $uniqueId = isset($_SERVER['HTTP_UNIQUE_ID'])?
+                          $_SERVER['HTTP_UNIQUE_ID'] : uniqid($openApiSdkConfig['app_id'].'.', true);
+        $openApiSdkConfig['options']['headers']['unique-id'] = $uniqueId;
         if (is_ssl()) {
-             $config['options']['headers']['X-FORWARDED-PROTO'] = 'https';
+             $openApiSdkConfig['options']['headers']['X-FORWARDED-PROTO'] = 'https';
         }
 
         $version = trim(str_replace('applicationv', '', APPPATH), '/');
         $act = isset($_POST['Act']) ? $_POST['Act'] : '';
 
-        $config['options']['user_agent'] = sprintf(
+        $openApiSdkConfig['options']['user_agent'] = sprintf(
             'Shop Open Api Sdk/%s(%s)->%s %s %s',
             $version,
-            $config['app_id'],
-            $config['version'],
-            $CI->input->server('HTTP_USER_AGENT'),
+            $openApiSdkConfig['app_id'],
+            $openApiSdkConfig['version'],
+            isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '',
             $act
         );
-        $config['options']['headers']['x-api-proxy'] = 'Api-Proxy';
+        $openApiSdkConfig['options']['headers']['x-api-proxy'] = 'Api-Proxy';
 
-        $proxy = new Vendor_Proxy($config);
-        $method = $CI->input->server('REQUEST_METHOD');
-        //$url .= (strpos($url, '?') !== false ? '&' :'?').http_build_query($_POST);
+        $proxy = new Vendor_Proxy($openApiSdkConfig);
+        $method = $_SERVER['REQUEST_METHOD'];
+        //$url .= (strpos($url, '?'] !== false ? '&' :'?'].http_build_query($_POST);
         return $proxy->$method($url, $_POST);
     }
 }
