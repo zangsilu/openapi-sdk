@@ -67,7 +67,8 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
         if (!isset($this->headers['X-Api-Proxy']) || !$this->headers['X-Api-Proxy']) {
             $this->json = $this->json(true);
             if (!isset($this->json['ResponseStatus']) || $this->json['ResponseStatus'] != 0) {
-                throw new Vendor_RestClient_Exception($this->json['ResponseMsg']);
+                $code = !isset($this->json['ResponseStatus']) ? 0 : $this->json['ResponseStatus'];
+                throw new Vendor_RestClient_Exception($this->json['ResponseMsg'], $code);
             }
         }
     }
