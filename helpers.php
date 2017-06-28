@@ -111,16 +111,16 @@ if (!function_exists('apache_request_headers')) {
     }
 }
 
-if (!function_exists('is_ssl')) {
+if (!function_exists('openApiIsSsl')) {
     /**
-     * is_ssl
+     * openApiIsSsl
      *
      *
      * @access public
      *
      * @return mixed
      */
-    function is_ssl()
+    function openApiIsSsl()
     {
         if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
             return true;
@@ -192,7 +192,7 @@ if (!function_exists('openApiProxy4CI')) {
         $uniqueId = isset($_SERVER['HTTP_UNIQUE_ID'])?
                           $_SERVER['HTTP_UNIQUE_ID'] : uniqid($openApiSdkConfig['app_id'].'.', true);
         $openApiSdkConfig['options']['headers']['unique-id'] = $uniqueId;
-        if (is_ssl()) {
+        if (openApiIsSsl()) {
              $openApiSdkConfig['options']['headers']['X-FORWARDED-PROTO'] = 'https';
         }
 
