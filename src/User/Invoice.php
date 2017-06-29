@@ -31,9 +31,12 @@ class Vendor_User_Invoice extends Vendor_Api
     {
         $criteria['Act'] = 'InvoiceAdd';
         $criteria['UserId'] = (string) $criteria['UserId'];
-        $criteria['InvoiceType'] = !empty($criteria['InvoiceType']) ? intval($criteria['InvoiceType']) : 0;
-        $criteria['ContentType'] = !empty($criteria['ContentType']) ? intval($criteria['ContentType']) : 0;
-        $criteria['TaxpayerTitle'] = !empty($criteria['TaxpayerTitle']) ? strval($criteria['TaxpayerTitle']) : '';
+        if (isset($criteria['InvoiceType'])) {
+            $criteria['InvoiceType'] = intval($criteria['InvoiceType']);
+        }
+        if (isset($criteria['ContentType'])) {
+            $criteria['ContentType'] = intval($criteria['ContentType']);
+        }
 
         return $this->client->post('?InvoiceAdd', $criteria);
     }
@@ -52,7 +55,12 @@ class Vendor_User_Invoice extends Vendor_Api
     {
         $criteria['Act'] = 'InvoiceEdit';
         $criteria['UserId'] = (string) $criteria['UserId'];
-        $criteria['InvoiceType'] = ! empty($criteria['InvoiceType']) ? intval($criteria['InvoiceType']) : 0;
+        if (isset($criteria['InvoiceType'])) {
+            $criteria['InvoiceType'] = intval($criteria['InvoiceType']);
+        }
+        if (isset($criteria['ContentType'])) {
+            $criteria['ContentType'] = intval($criteria['ContentType']);
+        }
 
         return $this->client->post('?InvoiceEdit', $criteria);
     }
@@ -90,9 +98,9 @@ class Vendor_User_Invoice extends Vendor_Api
     {
         $criteria['Act'] = 'GetInvoiceList';
         $criteria['UserId'] = (string) $criteria['UserId'];
-        if (! empty($criteria['InvoiceType'])) {
+        if (isset($criteria['InvoiceType'])) {
             $criteria['InvoiceType'] = intval($criteria['InvoiceType']);
-        } 
+        }
 
         return $this->client->post('?GetInvoiceList', $criteria);
     }
