@@ -57,17 +57,18 @@ class Vendor_RestClient_Response implements Iterator, ArrayAccess
         $this->headers['Status-Code'] = $matches[2];
         $this->headers['Status'] = $matches[2].' '.$matches[3];
 
-        if ($this->headers['Status'] != 200) {
-            throw new Vendor_RestClient_Exception('Http status is not 200!');
-        }
         foreach ($headers as $header) {
             preg_match('#(.*?)\:\s(.*)#', $header, $matches);
             $this->headers[$matches[1]] = $matches[2];
         }
         if (!isset($this->headers['X-Api-Proxy']) || !$this->headers['X-Api-Proxy']) {
+            if ($this->headers['Status'] != 200) {
+                throw new Vendor_RestClient_Exception($this->headers['Status-Code']);
+            }
             $this->json = $this->json(true);
             if (!isset($this->json['ResponseStatus']) || $this->json['ResponseStatus'] != 0) {
-                throw new Vendor_RestClient_Exception($this->json['ResponseMsg']);
+                $code = !isset($this->json['ResponseStatus']) ? 0 : $this->json['ResponseStatus'];
+                throw new Vendor_RestClient_Exception($this->json['ResponseMsg'], $code);
             }
         }
     }

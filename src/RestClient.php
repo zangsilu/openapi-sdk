@@ -108,12 +108,11 @@ class Vendor_RestClient
             $url .= strpos($url, '?') !== false ? '&' : '?';
             $url .= is_string($vars) ? $vars :http_build_query($vars);
         }
-
         if ($this->baseUrl) {
             $url = sprintf('%s%s', $this->baseUrl, $url);
         }
 
-        $curlopt[CURLOPT_URL] = $url;
+        $curlopt[CURLOPT_URL] = str_replace('/?', '?', $url);
 
         if ($this->options['curl_options']) {
             foreach ($this->options['curl_options'] as $key => $value) {
