@@ -30,4 +30,38 @@ class Vendor_Coupon_Coupon extends Vendor_Api
        
         return $this->client->post($url, $criteria);
     }
+
+    /**
+     * shopCouponBatchSend 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function shopCouponBatchSend($criteria)
+    {
+        $url = '/?shop_coupon_batch_send';
+        $criteria['method'] = 'shop.coupon.batch.send';
+
+        return $this->client->post($url, $criteria);
+    }
+
+    /**
+     * shopCouponNewSend 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function shopCouponNewSend($criteria)
+    {
+        $url = '/?shop_coupon_newsend';
+        $criteria['Act'] = 'shop.coupon.newsend';
+
+        return $this->client->post($url, $criteria);
+    }
 }
