@@ -36,3 +36,22 @@
 * 各个服务进行封装，方便其他应用便捷使用
 
 * 错误抛异常
+
+### 安装
+
+```
+composer require liugj/openapi-sdk
+php 5.2 需要 composer require xrstf/composer-php52
+```
+
+### 使用
+
+php5.2 
+```
+require_once dirname(__FILE__) . '/vendor/autoload_52.php';
+```
+php 5.3+
+```
+require_once dirname(__FILE__) . '/vendor/autoload.php';
+
+```
