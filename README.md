@@ -1,6 +1,6 @@
 #### 要求
 
-* composer方式组件管理
+* composer管理组件
 
 * psr2风格编码
 
@@ -44,14 +44,17 @@ composer require liugj/openapi-sdk
 php 5.2 需要 composer require xrstf/composer-php52
 ```
 
-### 使用
+### 使用说明
 
-php5.2 
+- php5.2 
+
 ```
 require_once dirname(__FILE__) . '/vendor/autoload_52.php';
 ```
-php 5.3+
+
+- php 5.3+
+
 ```
-require_once dirname(__FILE__) . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 ```
