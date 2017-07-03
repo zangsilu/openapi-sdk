@@ -25,7 +25,7 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function getCoupon($criteria)
     {
-        $url = '/?GetCoupon';
+        $url = '?GetCoupon';
         $criteria['Act'] =  'GetCoupon';
        
         return $this->client->post($url, $criteria);
@@ -42,7 +42,7 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function shopCouponBatchSend($criteria)
     {
-        $url = '/?shop_coupon_batch_send';
+        $url = '?shop_coupon_batch_send';
         $criteria['method'] = 'shop.coupon.batch.send';
 
         return $this->client->post($url, $criteria);
@@ -59,7 +59,7 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function shopCouponNewSend($criteria)
     {
-        $url = '/?shop_coupon_newsend';
+        $url = '?shop_coupon_newsend';
         $criteria['Act'] = 'shop.coupon.newsend';
 
         return $this->client->post($url, $criteria);
