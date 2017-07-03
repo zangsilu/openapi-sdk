@@ -75,7 +75,7 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function shopCouponNewGet($criteria)
     {
-        $url = '/?shop.coupon.newget';
+        $url = '?shop.coupon.newget';
         $criteria['Act'] = 'shop.coupon.newget';
 
         return $this->client->post($url, $criteria);
