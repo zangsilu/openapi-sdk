@@ -64,4 +64,20 @@ class Vendor_Coupon_Coupon extends Vendor_Api
 
         return $this->client->post($url, $criteria);
     }
+    /**
+     * 检查状态 shopCouponNewGet 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function shopCouponNewGet($criteria)
+    {
+        $url = '/?shop.coupon.newget';
+        $criteria['Act'] = 'shop.coupon.newget';
+
+        return $this->client->post($url, $criteria);
+    }
 }
