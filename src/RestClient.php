@@ -112,7 +112,7 @@ class Vendor_RestClient
             $url = sprintf('%s%s', $this->baseUrl, $url);
         }
 
-        $curlopt[CURLOPT_URL] = str_replace('/?', '?', $url);
+        $curlopt[CURLOPT_URL] = preg_replace('#(/)+\?#', '?', $url);
 
         if ($this->options['curl_options']) {
             foreach ($this->options['curl_options'] as $key => $value) {
