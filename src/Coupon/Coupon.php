@@ -32,12 +32,12 @@ class Vendor_Coupon_Coupon extends Vendor_Api
     }
 
     /**
-     * shopCouponBatchSend 
-     * 
-     * @param mixed $criteria 
-     * 
+     * shopCouponBatchSend
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function shopCouponBatchSend($criteria)
@@ -49,12 +49,12 @@ class Vendor_Coupon_Coupon extends Vendor_Api
     }
 
     /**
-     * shopCouponNewSend 
-     * 
-     * @param mixed $criteria 
-     * 
+     * shopCouponNewSend
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function shopCouponNewSend($criteria)
@@ -65,12 +65,12 @@ class Vendor_Coupon_Coupon extends Vendor_Api
         return $this->client->post($url, $criteria);
     }
     /**
-     * 检查状态 shopCouponNewGet 
-     * 
-     * @param mixed $criteria 
-     * 
+     * 检查状态 shopCouponNewGet
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function shopCouponNewGet($criteria)

@@ -118,7 +118,7 @@ class Vendor_Goods_Product extends Vendor_Api
 
         return $this->client->post('?GetShoppingMallGoodsList', $criteria);
     }
-    /** 
+    /**
      * 专题页获取商品列表 double12
      *
      * @param mixed $criteria
@@ -129,9 +129,9 @@ class Vendor_Goods_Product extends Vendor_Api
      * @return mixed
      */
     public function double12($criteria)
-    {   
+    {
         $criteria['Act'] = 'double12';
 
         return $this->client->post('?double12', $criteria);
-    } 
+    }
 }

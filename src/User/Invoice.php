@@ -122,5 +122,5 @@ class Vendor_User_Invoice extends Vendor_Api
         $criteria['InvoiceId'] =  !empty($criteria['InvoiceId']) ? intval($criteria['InvoiceId']) : 0;
 
         return $this->client->post('?GetInvoiceDetail', $criteria);
-    }        
+    }
 }

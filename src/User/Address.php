@@ -12,7 +12,7 @@
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU General Public License
  * @version   GIT:<git_id>
  * @link      http://shop.openapi.boqii.com
- * @see       
+ * @see
  */
 class Vendor_User_Address extends Vendor_Api
 {
