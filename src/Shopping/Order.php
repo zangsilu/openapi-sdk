@@ -27,9 +27,9 @@ class Vendor_Shopping_Order extends Vendor_Api
      */
     public function getPreSaleOrderAmount($criteria)
     {
-        $criteria['Act'] = 'getPreSaleOrderAmount';
+        $criteria['Act'] = 'GetPreSaleOrderAmount';
 
-        return $this->client->post('?getPreSaleOrderAmount', $criteria);
+        return $this->client->post('?GetPreSaleOrderAmount', $criteria);
     }
 
     /**
@@ -43,9 +43,9 @@ class Vendor_Shopping_Order extends Vendor_Api
      */
     public function commitPreSaleGoodsOrder($criteria)
     {
-        $criteria['Act'] = 'commitPreSaleGoodsOrder';
+        $criteria['Act'] = 'CommitPreSaleGoodsOrder';
 
-        return $this->client->post('?commitPreSaleGoodsOrder', $criteria);
+        return $this->client->post('?CommitPreSaleGoodsOrder', $criteria);
     }
 
     /**
@@ -59,9 +59,9 @@ class Vendor_Shopping_Order extends Vendor_Api
      */
     public function getRetainagePayment($criteria)
     {
-        $criteria['Act'] = 'getRetainagePayment';
+        $criteria['Act'] = 'GetRetainagePayment';
 
-        return $this->client->post('?getRetainagePayment', $criteria);
+        return $this->client->post('?GetRetainagePayment', $criteria);
     }
 
     /**
@@ -75,9 +75,9 @@ class Vendor_Shopping_Order extends Vendor_Api
      */
     public function commitGoodsOrder($criteria)
     {
-        $criteria['Act'] = 'commitGoodsOrder';
+        $criteria['Act'] = 'CommitGoodsOrder';
 
-        return $this->client->post('?commitGoodsOrder', $criteria);
+        return $this->client->post('?CommitGoodsOrder', $criteria);
     }
 
 
