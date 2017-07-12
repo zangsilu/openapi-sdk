@@ -128,6 +128,23 @@ class Vendor_Comment_Comment extends Vendor_Api
     }
 
     /**
+     * update 
+     * 
+     * @param mixed $comment 
+     * @param mixed $id 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function update($comment, $id)
+    {
+        $url = sprintf('comment/%d', $id);
+
+        return $this->client->put($url, $comment)->toArray();
+    }
+
+    /**
      * 获取分销订单评论
      *
      * @param array $distributionIds
