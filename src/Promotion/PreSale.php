@@ -24,10 +24,10 @@ class Vendor_Promotion_PreSale extends Vendor_Api
      *
      * @return mixed
      */
-    public function PreSaleDetail($criteria)
+    public function GetPreSaleDetail($criteria)
     {
-        $criteria['Act'] = 'PreSaleDetail';
+        $criteria['Act'] = 'GetPreSaleDetail';
 
-        return $this->client->post('?PreSaleDetail', $criteria);
+        return $this->client->post('?GetPreSaleDetail', $criteria);
     }
 }
