@@ -30,4 +30,17 @@ class Vendor_Promotion_PreSale extends Vendor_Api
 
         return $this->client->post('?GetPreSaleDetail', $criteria);
     }
+
+    /**
+     * 通过活动ID获取预售商品列表 (供预售活动模板使用)
+     * 
+     * @param $criteria
+     * @return mixed
+     */
+    public function GetPreSaleGoodsListByActivityIds($criteria)
+    {
+        $criteria['Act'] = 'GetPreSaleGoodsListByActivityIds';
+
+        return $this->client->post('?GetPreSaleGoodsListByActivityIds', $criteria);
+    }
 }
