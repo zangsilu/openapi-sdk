@@ -124,7 +124,7 @@ class Vendor_Comment_Comment extends Vendor_Api
     {
         $url = 'comment';
 
-        return $this->client->post($url, $comment)->toArray();
+        return $this->client->post($url, $comment);
     }
 
     /**
