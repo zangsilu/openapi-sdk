@@ -48,11 +48,14 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @return array
      */
-    public function getCountOfCanComment($criteria)
+    public function getCountOfCanComment($criteria, $assoc = true)
     {
         $url = 'comments?act=getCountOfCanComment';
+        if ($assoc) {
+            return $this->client->get($url, $criteria)->toArray();    
+        }
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->get($url, $criteria);
     }
 
     /**
@@ -120,9 +123,12 @@ class Vendor_Comment_Comment extends Vendor_Api
      *
      * @return array
      */
-    public function create($comment)
+    public function create($comment, $assoc = true)
     {
         $url = 'comment';
+        if ($assoc) {
+            return $this->client->post($url, $comment)->toArray();    
+        }
 
         return $this->client->post($url, $comment);
     }
