@@ -12,7 +12,7 @@
  * @version   GIT:<git_id>
  * @link      http://shop.openapi.boqii.com
  */
-class Vendor_Promotion_SecKill extends Vendor_Api
+class Vendor_Promotion_Package extends Vendor_Api
 {
     /**
      * getPackageGoodsList
