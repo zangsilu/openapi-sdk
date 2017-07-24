@@ -79,6 +79,4 @@ class Vendor_Shopping_Order extends Vendor_Api
 
         return $this->client->post('?CommitGoodsOrder', $criteria);
     }
-
-
 }

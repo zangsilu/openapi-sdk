@@ -56,5 +56,4 @@ class Vendor_Promotion_PreSale extends Vendor_Api
 
         return $this->client->post('?GetInitPreSaleProductList', $criteria);
     }
-
 }

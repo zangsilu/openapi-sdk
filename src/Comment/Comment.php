@@ -52,7 +52,7 @@ class Vendor_Comment_Comment extends Vendor_Api
     {
         $url = 'comments?act=getCountOfCanComment';
         if ($assoc) {
-            return $this->client->get($url, $criteria)->toArray();    
+            return $this->client->get($url, $criteria)->toArray();
         }
 
         return $this->client->get($url, $criteria);
@@ -127,20 +127,20 @@ class Vendor_Comment_Comment extends Vendor_Api
     {
         $url = 'comment';
         if ($assoc) {
-            return $this->client->post($url, $comment)->toArray();    
+            return $this->client->post($url, $comment)->toArray();
         }
 
         return $this->client->post($url, $comment);
     }
 
     /**
-     * update 
-     * 
-     * @param mixed $comment 
-     * @param mixed $id 
-     * 
+     * update
+     *
+     * @param mixed $comment
+     * @param mixed $id
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function update($comment, $id)
