@@ -79,4 +79,20 @@ class Vendor_Shopping_Order extends Vendor_Api
 
         return $this->client->post('?CommitGoodsOrder', $criteria);
     }
+
+    /**
+     * 获取预售订单汇总信息接口
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getPreSaleOrderInfo($criteria)
+    {
+        $criteria['Act'] = 'GetPreSaleOrderInfo';
+
+        return $this->client->post('?GetPreSaleOrderInfo', $criteria);
+    }
 }
