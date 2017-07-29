@@ -49,7 +49,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     }
 
     /**
-     * 预售订单尾款支付接口
+     * 预售订单尾款支付页面接口
      *
      * @param mixed $criteria
      *
@@ -62,6 +62,22 @@ class Vendor_Shopping_Order extends Vendor_Api
         $criteria['Act'] = 'GetRetainagePayment';
 
         return $this->client->post('?GetRetainagePayment', $criteria);
+    }
+
+    /**
+     * 预售订单尾款支付提交接口
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function commitRetainagePayment($criteria)
+    {
+        $criteria['Act'] = 'CommitRetainagePayment';
+
+        return $this->client->post('?CommitRetainagePayment', $criteria);
     }
 
     /**
