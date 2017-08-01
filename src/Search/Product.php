@@ -59,6 +59,14 @@ class Vendor_Search_Product extends Vendor_Api
 
         $url = 'product/search';
 
-        return $this->client->get($url, $criteria)->toArray();
+        $response = $this->client->get($url, $criteria)->toArray();
+
+        $response['facets']['p1'] = $response['facets']['p'];
+        foreach ($response['facets']['p1'] as $key => $value) {
+            $response['facets']['p1'][$key] = array_sum($value);   
+        }
+        rsort($response['facets']['p1'], SORT_NUMERIC);
+
+        return $response;
     }
 }
