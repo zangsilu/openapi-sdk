@@ -52,10 +52,9 @@ class Vendor_Search_Product extends Vendor_Api
         if (!$criteria['q'] && !$criteria['s']) {
             $criteria['s'] = 'isstock_DESC,upstatus_DESC,sales_DESC,order_saleamount_DESC';
         }
-        $criteria['format'] = 'json';
-        $criteria['app_id'] = $this->appId;
         $criteria['highlight'] = 'pname';
         $criteria['facets']    = isset($params['facets']) ? $params['facets']: 'brandid,c3,p';
+        $criteria['site_source'] = $params['site_source'];
 
         $url = 'product/search';
 
@@ -65,7 +64,7 @@ class Vendor_Search_Product extends Vendor_Api
         foreach ($response['facets']['p1'] as $key => $value) {
             $response['facets']['p1'][$key] = array_sum($value);   
         }
-        rsort($response['facets']['p1'], SORT_NUMERIC);
+        arsort($response['facets']['p1'], SORT_NUMERIC);
 
         return $response;
     }
