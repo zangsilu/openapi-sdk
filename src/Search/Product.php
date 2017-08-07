@@ -29,6 +29,14 @@ class Vendor_Search_Product extends Vendor_Api
             return array();
         }
         $criteria = array();
+        $criteria['cateid'] = $params['cateid'];
+        $criteria['brandid'] = $params['brandid'];
+        $criteria['attrid'] = $params['attrid'];
+        $criteria['userid'] = $params['userid'];
+        $criteria['cityid'] = $params['cityid'];
+        $criteria['isglobal'] = $params['isglobal'];
+        $criteria['isstock'] = $params['isstock'];
+
         $criteria['q'] = $params['keyword'];
         $criteria['p'] = $params['page'];
         $criteria['ps'] = $params['size'];
