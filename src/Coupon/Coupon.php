@@ -112,4 +112,20 @@ class Vendor_Coupon_Coupon extends Vendor_Api
 
         return $this->client->post($url, $criteria);
     }
+
+    /**
+     * crontask 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function crontask($criteria)
+    {
+        $url = 'coupon/crontask';    
+
+        return $this->client->post($url, $criteria);
+    }
 }
