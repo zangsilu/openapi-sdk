@@ -28,19 +28,14 @@ class Vendor_Search_Product extends Vendor_Api
         if (!$params) {
             return array();
         }
-        $criteria = array();
-        $criteria['cateid'] = $params['cateid'];
-        $criteria['brandid'] = $params['brandid'];
-        $criteria['attrid'] = $params['attrid'];
-        $criteria['userid'] = $params['userid'];
-        $criteria['cityid'] = $params['cityid'];
-        $criteria['isglobal'] = $params['isglobal'];
-        $criteria['isstock'] = $params['isstock'];
+        $criteria = array_intersect_key($params, array_flip(array(
+            'cateid', 'brandid', 'attrid', 'cityid', 'isglobal', 'isstock'
+        )));
 
         $criteria['q'] = $params['keyword'];
         $criteria['p'] = $params['page'];
         $criteria['ps'] = $params['size'];
-        $price =  ($params['userid'] && $params['grade'])? sprintf('price_%s_v%s', $params['source'], $params['grade']) : 'newcast';
+        $price =  $params['grade'] ? sprintf('price_%s_v%s', $params['source'], $params['grade']) : 'newcast';
         $sortFields = array(
              0 => '',
              1 => 'isstock_DESC,sales_DESC',
