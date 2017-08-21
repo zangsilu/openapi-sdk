@@ -35,7 +35,8 @@ class Vendor_Search_Product extends Vendor_Api
         $criteria['q'] = $params['keyword'];
         $criteria['p'] = $params['page'];
         $criteria['ps'] = $params['size'];
-        $price =  $params['grade'] ? sprintf('price_%s_v%s', $params['source'], $params['grade']) : 'newcast';
+        $source = isset($params['source']) ? $params['source'] : 'pc';
+        $price =  $params['grade'] ? sprintf('price_%s_v%s', $source, $params['grade']) : 'newcast';
         $sortFields = array(
              0 => '',
              1 => 'isstock_DESC,sales_DESC',
