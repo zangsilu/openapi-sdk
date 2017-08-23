@@ -80,4 +80,52 @@ class Vendor_Coupon_Coupon extends Vendor_Api
 
         return $this->client->post($url, $criteria);
     }
+    /**
+     * 检查优惠券 checkCoupon
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function checkCoupon($criteria)
+    {
+        $url = '?checkCoupon';
+        $criteria['Act'] = 'CheckCoupon';
+
+        return $this->client->post($url, $criteria);
+    }
+    /**
+     * 获取优惠券列表 getShoppingMallCoupon
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getShoppingMallCoupon($criteria)
+    {
+        $url = '?getShoppingMallCoupon';
+        $criteria['Act'] = 'GetShoppingMallCoupon';
+
+        return $this->client->post($url, $criteria);
+    }
+
+    /**
+     * crontask 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function crontask($criteria)
+    {
+        $url = 'coupon/crontask';    
+
+        return $this->client->post($url, $criteria);
+    }
 }
