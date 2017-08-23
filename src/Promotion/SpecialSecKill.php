@@ -41,7 +41,7 @@ class Vendor_Promotion_Special_SecKill extends Vendor_Api
      */
     public function getSpecialSecKillList($criteria)
     {
-        $url = 'promotion/special_seckill?act=getSpecialSecKillGoodsList';
+        $url = 'promotion/special_seckill?act=getSpecialSecKillList';
 
         return $this->client->get($url, $criteria)->toArray();
     }
