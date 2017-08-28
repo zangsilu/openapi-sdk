@@ -29,4 +29,20 @@ class Vendor_Foot_Footprints extends Vendor_Api
 
         return $this->client->post('?FootprintCount', $criteria);
     } 
+
+    /**
+     * footprintAdd 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function footprintAdd($criteria)
+    {   
+        $criteria['Act'] = 'FootprintAdd';
+
+        return $this->client->post('?FootprintAdd', $criteria);
+    } 
 }
