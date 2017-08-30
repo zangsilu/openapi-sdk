@@ -29,7 +29,7 @@ class Vendor_Search_Product extends Vendor_Api
             return array();
         }
         $criteria = array_intersect_key($params, array_flip(array(
-            'cateid', 'brandid', 'attrid', 'cityid', 'isglobal', 'isstock'
+            'cateid', 'brandid', 'attrid',  'isglobal', 'isstock'
         )));
 
         $criteria['q'] = $params['keyword'];
