@@ -77,4 +77,34 @@ class Vendor_Goods_Brand extends Vendor_Api
         }
         return $brands;
     }
+    /**
+     * 取消收藏 cancelMyBrand
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function cancelMyBrand($criteria)
+    {
+        $criteria['Act'] = 'CancelMyBrand';
+
+        return $this->client->post('?CancelMyBrand', $criteria);
+    }
+    /**
+     * 收藏 commitMyBrand
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function commitMyBrand($criteria)
+    {
+        $criteria['Act'] = 'CommitMyBrand';
+
+        return $this->client->post('?CommitMyBrand', $criteria);
+    }
 }
