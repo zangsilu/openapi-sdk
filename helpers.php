@@ -210,8 +210,8 @@ if (!function_exists('openApiProxy4CI')) {
         $openApiSdkConfig['options']['headers']['x-api-proxy'] = 'Api-Proxy';
 
         $proxy = new Vendor_Proxy($openApiSdkConfig);
-        $method = $_SERVER['REQUEST_METHOD'];
+        $method = strtoupper($_SERVER['REQUEST_METHOD']);
         //$url .= (strpos($url, '?'] !== false ? '&' :'?'].http_build_query($_POST);
-        return $proxy->$method($url, $_POST);
+        return $proxy->$method($url, $method == 'GET' ? $_GET : $_POST);
     }
 }
