@@ -25,7 +25,7 @@ class Vendor_Arch_Synonym extends Vendor_Api
      */
     public function delete($criteria = array())
     {
-        $url = 'search/synonym';
+        $url = 'synonym';
         return $this->client->delete($url, $criteria)->toArray();
     }
 }
