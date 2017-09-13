@@ -1,6 +1,6 @@
 <?php
  
-class Vendor_User_Beans extends Vendor_Api
+class Vendor_User_Bean extends Vendor_Api
 {
     /**
      * 批量发送波奇豆
@@ -12,7 +12,7 @@ class Vendor_User_Beans extends Vendor_Api
      *
      * @return mixed
      */
-    public function BeanBatchSend($criteria = array())
+    public function beanBatchSend($criteria = array())
     {
         $criteria['Act'] = 'BeanBatchSend';
         $criteria['orderIds'] = (string) $criteria['orderIds'];
