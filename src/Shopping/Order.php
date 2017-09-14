@@ -111,4 +111,34 @@ class Vendor_Shopping_Order extends Vendor_Api
 
         return $this->client->post('?GetPreSaleOrderInfo', $criteria);
     }
+
+    /**
+     * 订单取消
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function cancelOrder($criteria) 
+    {
+        $criteria['Act'] = 'CancelOrder';
+        return $this->client->post('?CancelOrder', $criteria);
+    }
+
+    /**
+     * 订单再次购买
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function shopOrderReBuy($criteria) 
+    {
+        $criteria['Act'] = 'ShopOrderReBuy';
+        return $this->client->post('?ShopOrderReBuy', $criteria);
+    }
 }
