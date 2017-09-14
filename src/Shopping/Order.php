@@ -121,10 +121,10 @@ class Vendor_Shopping_Order extends Vendor_Api
      *
      * @return mixed
      */
-    public function cancelOrder($criteria) 
+    public function orderCancel($criteria) 
     {
-        $criteria['Act'] = 'CancelOrder';
-        return $this->client->post('?CancelOrder', $criteria);
+        $criteria['Act'] = 'OrderCancel';
+        return $this->client->post('?OrderCancel', $criteria);
     }
 
     /**
