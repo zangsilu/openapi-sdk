@@ -43,4 +43,21 @@ class Vendor_Goods_ArrivalRecord extends Vendor_Api
 
         return $this->client->get($url, $criteria);
     }
+
+    /**
+     * commitArrivalNotice 
+     * 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function commitArrivalNotice($criteria)
+    {
+        $criteria['Act'] = 'CommitArrivalNotice';
+
+        $url = '?CommitArrivalNotice';
+
+        return $this->client->post($url, $criteria);
+    }
 }
