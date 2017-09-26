@@ -45,4 +45,20 @@ class Vendor_Promotion_Promotion extends Vendor_Api
 
         return $this->client->get($url, $criteria)->toArray();
     }
+    /**
+     * 促销信息 proActivity
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return array
+     */
+    public function proActivity($criteria)
+    {
+        $url = '?PromotionActivity';
+        $criteria['Act'] = 'PromotionActivity';
+
+        return $this->client->post($url, $criteria)->toArray();
+    }
 }

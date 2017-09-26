@@ -45,11 +45,11 @@ class Vendor_Goods_ArrivalRecord extends Vendor_Api
     }
 
     /**
-     * commitArrivalNotice 
-     * 
-     * 
+     * commitArrivalNotice
+     *
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function commitArrivalNotice($criteria)
