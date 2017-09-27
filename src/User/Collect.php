@@ -17,4 +17,20 @@ class Vendor_User_Collect extends Vendor_Api
 
         return $this->client->post('?HandleGoodsCollection', $criteria);
     }
+
+    /**
+     * GetMyCollectedGoodsList 
+     * 
+     * @param array $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function GetMyCollectedGoodsList($criteria = array())
+    {
+        $criteria['Act'] = 'GetMyCollectedGoodsList';
+
+        return $this->client->post('?GetMyCollectedGoodsList', $criteria);
+    }
 }
