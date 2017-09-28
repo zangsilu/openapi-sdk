@@ -29,7 +29,7 @@ class Vendor_Search_Product extends Vendor_Api
             return array();
         }
         $criteria = array_intersect_key($params, array_flip(array(
-            'cateid', 'brandid', 'attrid',  'isglobal', 'isstock'
+            'cateid', 'brandid', 'attrid',  'isglobal', 'isstock', 'ifpromotion'
         )));
 
         $criteria['q'] = $params['keyword'];
@@ -64,12 +64,13 @@ class Vendor_Search_Product extends Vendor_Api
         $url = 'product/search';
 
         $response = $this->client->get($url, $criteria)->toArray();
-
-        $response['facets']['p1'] = $response['facets']['p'];
-        foreach ($response['facets']['p1'] as $key => $value) {
-            $response['facets']['p1'][$key] = array_sum($value);
+        if ('brandid,c3,p' == $criteria['facets']) {
+            $response['facets']['p1'] = $response['facets']['p'];
+            foreach ($response['facets']['p1'] as $key => $value) {
+                $response['facets']['p1'][$key] = array_sum($value);
+            }
+            arsort($response['facets']['p1'], SORT_NUMERIC);
         }
-        arsort($response['facets']['p1'], SORT_NUMERIC);
 
         return $response;
     }
