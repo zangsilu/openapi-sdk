@@ -74,4 +74,19 @@ class Vendor_Search_Product extends Vendor_Api
 
         return $response;
     }
+    /**
+     * 品牌计数 brandCount 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function  brandCount($criteria)
+    {
+        $url = 'product/brand/count';
+
+        return  $this->client->get($url, $criteria)->toArray();
+    }
 }
