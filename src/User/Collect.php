@@ -15,7 +15,7 @@ class Vendor_User_Collect extends Vendor_Api
     {
         $criteria['Act'] = 'HandleGoodsCollection';
 
-        return $this->client->post('?HandleGoodsCollection', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -31,6 +31,6 @@ class Vendor_User_Collect extends Vendor_Api
     {
         $criteria['Act'] = 'GetMyCollectedGoodsList';
 
-        return $this->client->post('?GetMyCollectedGoodsList', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

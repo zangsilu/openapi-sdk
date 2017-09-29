@@ -27,7 +27,7 @@ class Vendor_Foot_Footprints extends Vendor_Api
     {
         $criteria['Act'] = 'FootprintCount';
 
-        return $this->client->post('?FootprintCount', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -43,6 +43,6 @@ class Vendor_Foot_Footprints extends Vendor_Api
     {
         $criteria['Act'] = 'FootprintAdd';
 
-        return $this->client->post('?FootprintAdd', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

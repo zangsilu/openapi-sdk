@@ -25,10 +25,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function getCoupon($criteria)
     {
-        $url = '?GetCoupon';
         $criteria['Act'] =  'GetCoupon';
        
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -42,10 +41,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function shopCouponBatchSend($criteria)
     {
-        $url = '?shop.coupon.batch.send';
         $criteria['Act'] = 'shop.coupon.batch.send';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -59,10 +57,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function shopCouponNewSend($criteria)
     {
-        $url = '?shop.coupon.newsend';
         $criteria['Act'] = 'shop.coupon.newsend';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 检查状态 shopCouponNewGet
@@ -75,10 +72,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function shopCouponNewGet($criteria)
     {
-        $url = '?shop.coupon.newget';
         $criteria['Act'] = 'shop.coupon.newget';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 检查优惠券 checkCoupon
@@ -91,10 +87,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function checkCoupon($criteria)
     {
-        $url = '?checkCoupon';
         $criteria['Act'] = 'CheckCoupon';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 获取优惠券列表 getShoppingMallCoupon
@@ -107,10 +102,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function getShoppingMallCoupon($criteria)
     {
-        $url = '?getShoppingMallCoupon';
         $criteria['Act'] = 'GetShoppingMallCoupon';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**

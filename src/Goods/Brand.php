@@ -90,7 +90,7 @@ class Vendor_Goods_Brand extends Vendor_Api
     {
         $criteria['Act'] = 'CancelMyBrand';
 
-        return $this->client->post('?CancelMyBrand', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 收藏 commitMyBrand

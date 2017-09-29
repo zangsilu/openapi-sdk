@@ -38,7 +38,7 @@ class Vendor_User_Invoice extends Vendor_Api
             $criteria['ContentType'] = intval($criteria['ContentType']);
         }
 
-        return $this->client->post('?InvoiceAdd', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -62,7 +62,7 @@ class Vendor_User_Invoice extends Vendor_Api
             $criteria['ContentType'] = intval($criteria['ContentType']);
         }
 
-        return $this->client->post('?InvoiceEdit', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -81,7 +81,7 @@ class Vendor_User_Invoice extends Vendor_Api
         $criteria['UserId'] = (string) $criteria['UserId'];
         $criteria['InvoiceId'] = !empty($criteria['InvoiceId']) ? intval($criteria['InvoiceId']) : 0;
 
-        return $this->client->post('?InvoiceDelete', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -102,7 +102,7 @@ class Vendor_User_Invoice extends Vendor_Api
             $criteria['InvoiceType'] = intval($criteria['InvoiceType']);
         }
 
-        return $this->client->post('?GetInvoiceList', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -121,6 +121,6 @@ class Vendor_User_Invoice extends Vendor_Api
         $criteria['UserId'] = (string) $criteria['UserId'];
         $criteria['InvoiceId'] =  !empty($criteria['InvoiceId']) ? intval($criteria['InvoiceId']) : 0;
 
-        return $this->client->post('?GetInvoiceDetail', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

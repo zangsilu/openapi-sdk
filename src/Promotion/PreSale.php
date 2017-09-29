@@ -28,7 +28,7 @@ class Vendor_Promotion_PreSale extends Vendor_Api
     {
         $criteria['Act'] = 'GetPreSaleDetail';
 
-        return $this->client->post('?GetPreSaleDetail', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -41,7 +41,7 @@ class Vendor_Promotion_PreSale extends Vendor_Api
     {
         $criteria['Act'] = 'GetPreSaleGoodsListByActivityIds';
 
-        return $this->client->post('?GetPreSaleGoodsListByActivityIds', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -54,6 +54,6 @@ class Vendor_Promotion_PreSale extends Vendor_Api
     {
         $criteria['Act'] = 'GetInitPreSaleProductList';
 
-        return $this->client->post('?GetInitPreSaleProductList', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

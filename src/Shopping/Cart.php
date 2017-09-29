@@ -29,7 +29,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartDetailV2';
 
-        return $this->client->post('?GetShoppingCartDetailV2', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -45,7 +45,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'ModifyShoppingCartGoodsNumber';
 
-        return $this->client->post('?ModifyShoppingCartGoodsNumber', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -61,7 +61,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartNumber';
 
-        return $this->client->post('?GetShoppingCartNumber', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 添加至购物车 addToShoppingCart
@@ -76,7 +76,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'AddToShoppingCart';
 
-        return $this->client->post('?AddToShoppingCart', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      *  批量添加至购物车 batchAddToShoppingCart
@@ -91,7 +91,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'BatchAddToShoppingCart';
 
-        return $this->client->post('?BatchAddToShoppingCart', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 根据商品获取其在购物车中的数量
@@ -104,7 +104,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartNumber';
 
-        return $this->client->post('?GetShoppingCartNumber', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -118,7 +118,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetInitCartProduct';
 
-        $response = $this->client->post('?GetInitCartProduct', $criteria)->toArray();
+        $response = $this->client->post('', $criteria)->toArray();
         if (!$response) {
             return $response;
         }
@@ -183,7 +183,7 @@ class Vendor_Shopping_Cart extends Vendor_Api
     {
         $criteria['Act'] = 'GetInitCartShowInfo';
 
-        $response = $this->client->post('?GetInitCartShowInfo', $criteria)->toArray();
+        $response = $this->client->post('', $criteria)->toArray();
         if (!$response) {
             return $response;
         }
@@ -258,6 +258,6 @@ class Vendor_Shopping_Cart extends Vendor_Api
         if (! isset($criteria['UserId']) || empty($criteria['UserId'])) {
             return false;
         }
-        return $this->client->post('?FlushShoppingCartNumber', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

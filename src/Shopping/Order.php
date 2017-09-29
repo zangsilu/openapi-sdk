@@ -29,7 +29,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     {
         $criteria['Act'] = 'GetPreSaleOrderAmount';
 
-        return $this->client->post('?GetPreSaleOrderAmount', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -45,7 +45,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     {
         $criteria['Act'] = 'CommitPreSaleGoodsOrder';
 
-        return $this->client->post('?CommitPreSaleGoodsOrder', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -61,7 +61,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     {
         $criteria['Act'] = 'GetRetainagePayment';
 
-        return $this->client->post('?GetRetainagePayment', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -77,7 +77,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     {
         $criteria['Act'] = 'CommitRetainagePayment';
 
-        return $this->client->post('?CommitRetainagePayment', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -93,7 +93,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     {
         $criteria['Act'] = 'CommitGoodsOrder';
 
-        return $this->client->post('?CommitGoodsOrder', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -109,7 +109,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     {
         $criteria['Act'] = 'GetPreSaleOrderInfo';
 
-        return $this->client->post('?GetPreSaleOrderInfo', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -124,7 +124,7 @@ class Vendor_Shopping_Order extends Vendor_Api
     public function orderCancel($criteria)
     {
         $criteria['Act'] = 'OrderCancel';
-        return $this->client->post('?OrderCancel', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -139,6 +139,6 @@ class Vendor_Shopping_Order extends Vendor_Api
     public function shopOrderReBuy($criteria)
     {
         $criteria['Act'] = 'ShopOrderReBuy';
-        return $this->client->post('?ShopOrderReBuy', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

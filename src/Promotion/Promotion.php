@@ -56,9 +56,8 @@ class Vendor_Promotion_Promotion extends Vendor_Api
      */
     public function proActivity($criteria)
     {
-        $url = '?PromotionActivity';
         $criteria['Act'] = 'PromotionActivity';
 
-        return $this->client->post($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }

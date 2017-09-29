@@ -27,7 +27,7 @@ class Vendor_Goods_Package extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingMallGoodsPackage';
 
-        return $this->client->post('?GetShoppingMallGoodsPackage', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 套餐金额 packageAmountCalclulation
@@ -42,6 +42,6 @@ class Vendor_Goods_Package extends Vendor_Api
     {
         $criteria['Act'] = 'PackageAmountCalclulation';
 
-        return $this->client->post('?PackageAmountCalclulation', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

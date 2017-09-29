@@ -109,7 +109,11 @@ class Vendor_RestClient
             $url .= is_string($vars) ? $vars :http_build_query($vars);
         }
         if ($this->baseUrl) {
-            $url = sprintf('%s%s', $this->baseUrl, $url);
+            if (!$url) {
+              $url = preg_replace('#/v\d+\.\d+/$#', '/', $this->baseUrl); 
+            } else {
+                $url = sprintf('%s%s', $this->baseUrl, $url);
+            }
         }
 
         $curlopt[CURLOPT_URL] = preg_replace('#(/)+\?#', '?', $url);
@@ -124,7 +128,12 @@ class Vendor_RestClient
         $response = curl_exec($handle);
         $end = microtime(true);
         if (function_exists('log_message')) {
-            log_message('error', sprintf('url:%s cost:%.3fs', $url, $end-$start));
+            $param = $vars;
+            if (is_string($vars)){
+                parse_str($vars, $param);
+            }
+            $act = isset($param['Act']) ? $param['Act'] :(isset($param['method'])? $param['method']: '');
+            log_message('error', sprintf('url:%s?%s cost:%.3fs', $url, $act, $end-$start));
         }
         if (curl_errno($handle)) {
             list($error, $errno) = array(curl_error($handle), curl_errno($handle));

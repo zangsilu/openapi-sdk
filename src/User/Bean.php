@@ -17,6 +17,6 @@ class Vendor_User_Bean extends Vendor_Api
         $criteria['Act'] = 'BeanBatchSend';
         $criteria['orderIds'] = (string) $criteria['orderIds'];
 
-        return $this->client->post('?BeanBatchSend', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

@@ -28,7 +28,7 @@ class Vendor_Shopping_ChangeBuy extends Vendor_Api
     {
         $criteria['Act'] = 'GetChangeBuyList';
 
-        return $this->client->post('?GetChangeBuyList', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 重新选择换购商品 changeBuyGoods
@@ -43,6 +43,6 @@ class Vendor_Shopping_ChangeBuy extends Vendor_Api
     {
         $criteria['Act'] = 'ChangeBuyGoods';
 
-        return $this->client->post('?ChangeBuyGoods', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

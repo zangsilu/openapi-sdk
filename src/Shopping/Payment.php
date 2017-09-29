@@ -28,7 +28,7 @@ class Vendor_Shopping_Payment extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingCartMoneyInfo';
 
-        return $this->client->post('?GetShoppingCartMoneyInfo', $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -44,6 +44,6 @@ class Vendor_Shopping_Payment extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingAmountDetail';
 
-        return $this->client->post('?GetShoppingAmountDetail', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

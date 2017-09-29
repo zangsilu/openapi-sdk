@@ -160,13 +160,12 @@ class Vendor_Comment_Comment extends Vendor_Api
     public function getDistributionOrderComment(array $distributionIds)
     {
         $distributionIds = ! empty($distributionIds) ? implode(',', $distributionIds) : '';
-        $url = '/?';
         $criteria = array(
             'method' => 'shop.distribution.order.comment',
             'format' => 'json',
             'data'   => $distributionIds,
         );
 
-        return $this->client->post($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }

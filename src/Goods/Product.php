@@ -101,7 +101,7 @@ class Vendor_Goods_Product extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingMallGoodsDetail';
 
-        return $this->client->post('?GetShoppingMallGoodsDetail', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 商品列表 getShoppingMallGoodsList
@@ -116,7 +116,7 @@ class Vendor_Goods_Product extends Vendor_Api
     {
         $criteria['Act'] = 'GetShoppingMallGoodsList';
 
-        return $this->client->post('?GetShoppingMallGoodsList', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 专题页获取商品列表 double12
@@ -132,6 +132,6 @@ class Vendor_Goods_Product extends Vendor_Api
     {
         $criteria['Act'] = 'double12';
 
-        return $this->client->post('?double12', $criteria);
+        return $this->client->post('', $criteria);
     }
 }
