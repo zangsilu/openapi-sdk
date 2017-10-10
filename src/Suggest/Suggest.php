@@ -15,7 +15,7 @@
 class Vendor_Suggest_Suggest extends Vendor_Api
 {
     /**
-     * getDefautSuggest 
+     * getDefaultSuggest 
      * 
      * @param mixed $criteria 
      * 
@@ -23,7 +23,7 @@ class Vendor_Suggest_Suggest extends Vendor_Api
      * 
      * @return mixed
      */
-    public function getDefautSuggest($criteria)
+    public function getDefaultSuggest($criteria)
     {
         $criteria['Act'] = 'GetDefaultSuggest';
 
