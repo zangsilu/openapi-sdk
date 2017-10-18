@@ -26,8 +26,10 @@ class Vendor_Promotion_FullCoupon extends Vendor_Api
      */
     public function pushOrder($criteria)
     {
-        $url = 'promotion/full_coupon?act=pushOrder';
+        //$url = 'promotion/full_coupon?act=pushOrder';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'FullCouponPushOrder';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }
