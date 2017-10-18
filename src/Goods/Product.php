@@ -85,9 +85,11 @@ class Vendor_Goods_Product extends Vendor_Api
      */
     public function update($id, $criteria)
     {
-        $url = sprintf('goods/product/%d', $id);
+        $url = '?UpdateGoodsInfo';
+        $criteria['id'] = $id;
+        $criteria['Act'] = 'UpdateGoodsInfo';
 
-        return $this->client->put($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
 
     /**

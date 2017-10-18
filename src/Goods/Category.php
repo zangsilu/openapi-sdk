@@ -47,8 +47,11 @@ class Vendor_Goods_Category extends Vendor_Api
     public function show($id, $criteria = array())
     {
         $url = sprintf('goods/category/%d', $id);
+        $url = '?GetProductCategory';
+        $criteria['Act'] = 'GetProductCategory';
+        $criteria['id'] = $id;
 
-        return  $this->client->get($url, $criteria)->toArray();
+        return  $this->client->post($url, $criteria)->toArray();
     }
     /**
      * getParentInfo

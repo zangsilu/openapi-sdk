@@ -118,7 +118,9 @@ class Vendor_Coupon_Coupon extends Vendor_Api
      */
     public function crontask($criteria)
     {
-        $url = 'coupon/crontask';
+        $url = '?SendCoupons';
+
+        $criteria['Act'] = 'SendCoupons';
 
         return $this->client->post($url, $criteria);
     }
