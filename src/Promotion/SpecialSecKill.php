@@ -25,9 +25,11 @@ class Vendor_Promotion_Special_SecKill extends Vendor_Api
      */
     public function getSpecialHomeSecKillInfo($criteria)
     {
-        $url = 'promotion/special_seckill?act=getSpecialHomeSecKillInfo';
+        //$url = 'promotion/special_seckill?act=getSpecialHomeSecKillInfo';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetSpecialHomeSecKillInfo';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -41,9 +43,11 @@ class Vendor_Promotion_Special_SecKill extends Vendor_Api
      */
     public function getSpecialSecKillList($criteria)
     {
-        $url = 'promotion/special_seckill?act=getSpecialSecKillList';
+        //$url = 'promotion/special_seckill?act=getSpecialSecKillList';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetSpecialSecKillList';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -57,8 +61,10 @@ class Vendor_Promotion_Special_SecKill extends Vendor_Api
      */
     public function getSpecialSecKillGoodsList($criteria)
     {
-        $url = 'promotion/special_seckill?act=getSpecialSecKillGoodsList';
+        //$url = 'promotion/special_seckill?act=getSpecialSecKillGoodsList';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetSpecialSecKillGoodsList';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }
