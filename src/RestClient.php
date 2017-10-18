@@ -109,14 +109,24 @@ class Vendor_RestClient
             $url .= is_string($vars) ? $vars :http_build_query($vars);
         }
         if ($this->baseUrl) {
-            if (!$url) {
-              $url = preg_replace('#/v\d+\.\d+/$#', '/', $this->baseUrl); 
-            } else {
-                $url = sprintf('%s%s', $this->baseUrl, $url);
-            }
+            $url = sprintf('%s%s', $this->baseUrl, $url);
         }
 
-        $curlopt[CURLOPT_URL] = preg_replace('#(/)+\?#', '?', $url);
+        if ($method == 'POST') {
+            // 设置方法
+            $act = isset($vars['Act']) ? $vars['Act'] : '';
+            if (! $act) {
+                $act = 'ActionNotFound';
+            }
+            if (strpos($url, '?') === false) {
+                $url .= '/?' . $act;
+            } else {
+                $url = strstr($url, '?', true) . '/?' . $act;
+            }
+            $curlopt[CURLOPT_URL] = preg_replace('#(/)+\?#', '/?', $url);
+        } else {
+            $curlopt[CURLOPT_URL] = preg_replace('#(/)+\?#', '?', $url);
+        }
 
         if ($this->options['curl_options']) {
             foreach ($this->options['curl_options'] as $key => $value) {
