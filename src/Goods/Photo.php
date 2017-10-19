@@ -49,11 +49,12 @@ class Vendor_Goods_Photo extends Vendor_Api
      */
     public function getByPid($criteria, $orderSort = '', $limit = 0, $offset = 0)
     {
-        $url = 'goods/photos?act=getByPid';
+        $url = '?GetGoodsPhotoByPid';
+        $criteria['Act'] = 'GetGoodsPhotoByPid';
         $orderSort ? $criteria['ordersort'] = $orderSort : '';
         $limit >0? $criteria['limit']     = $limit :'';
         $offset >=0? $criteria['offset']    = $offset: '';
-        $results =  $this->client->get($url, $criteria)->toArray();
+        $results =  $this->client->post($url, $criteria)->toArray();
         $photos  =  array();
         foreach ($results as $result) {
             $specIds = explode(',', $result['spec_id']);
@@ -75,9 +76,10 @@ class Vendor_Goods_Photo extends Vendor_Api
      */
     public function getProductMainPic($criteria)
     {
-        $url = 'goods/photos?act=getByPid';
+        $url = '?GetGoodsPhotoByPid';
+        $criteria['Act'] = 'GetGoodsPhotoByPid';
 
-        return $this->client->get($url, $criteria)->firstValue('picpath');
+        return $this->client->post($url, $criteria)->firstValue('picpath');
     }
 
     /**
@@ -89,9 +91,10 @@ class Vendor_Goods_Photo extends Vendor_Api
      */
     public function getPicpathByProductIds($criteria)
     {
-        $url = 'goods/photos?act=getByPid';
+        $url = '?GetGoodsPhotoByPid';
+        $criteria['Act'] = 'GetGoodsPhotoByPid';
 
-        $result = $this->client->get($url, $criteria)->toArray();
+        $result = $this->client->post($url, $criteria)->toArray();
         $picList = array();
         foreach ($result as $value) {
             $picList[$value['pid']] = $value['picpath'];
