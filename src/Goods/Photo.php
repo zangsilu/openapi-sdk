@@ -28,12 +28,13 @@ class Vendor_Goods_Photo extends Vendor_Api
      */
     public function getByPidPTypeSpecId($criteria, $orderSort = '', $limit = 0, $offset = 0)
     {
-        $url = 'goods/photos?act=getByPidPTypeSpecId';
+        $url = '?GetGoodsPhotoByPidPtypeSpecId';
+        $criteria['Act'] = 'GetGoodsPhotoByPidPtypeSpecId';
         $orderSort ? $criteria['ordersort'] = $orderSort : '';
         $limit >0? $criteria['limit']     = $limit :'';
         $offset >=0? $criteria['offset']    = $offset: '';
        
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
     /**
      * getByPid
@@ -111,8 +112,9 @@ class Vendor_Goods_Photo extends Vendor_Api
      */
     public function getByPidPTypeThenGroup($criteria)
     {
-        $url = 'goods/photos?act=getByPidPTypeThenGroup';
+        $url = '?GetGoodsPhotoByPidPtypeThenGroup';
+        $criteria['Act'] = 'GetGoodsPhotoByPidPtypeThenGroup';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
 }
