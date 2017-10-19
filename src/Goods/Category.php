@@ -28,12 +28,13 @@ class Vendor_Goods_Category extends Vendor_Api
      */
     public function getList($criteria, $orderSort = '', $limit = 0, $offset = -1)
     {
-        $url = 'goods/categories?act=getList';
+        $url = '?GetGoodsCategoryList';
+        $criteria['Act'] = 'GetGoodsCategoryList';
         $orderSort ? $criteria['ordersort'] = $orderSort : '';
         $limit ? $criteria['limit'] = $limit : '';
         $offset >=0? $criteria['offset']    = $offset:'';
        
-        return  $this->client->get($url, $criteria);
+        return  $this->client->post($url, $criteria);
     }
 
     /**
@@ -46,7 +47,6 @@ class Vendor_Goods_Category extends Vendor_Api
      */
     public function show($id, $criteria = array())
     {
-        $url = sprintf('goods/category/%d', $id);
         $url = '?GetProductCategory';
         $criteria['Act'] = 'GetProductCategory';
         $criteria['id'] = $id;
@@ -62,9 +62,10 @@ class Vendor_Goods_Category extends Vendor_Api
      */
     public function getParentInfo($criteria = array())
     {
-        $url = 'goods/categories?act=getParentInfo';
+        $url = '?GetGoodsCategoryParentInfo';
+        $criteria['Act'] = 'GetGoodsCategoryParentInfo';
 
-        return  $this->client->get($url, $criteria)->toArray();
+        return  $this->client->post($url, $criteria)->toArray();
     }
 
     /**
@@ -76,9 +77,10 @@ class Vendor_Goods_Category extends Vendor_Api
      */
     public function getParentIdByPid($criteria)
     {
-        $url = 'goods/categories?act=getParentIdByPid';
+        $url = '?GetGoodsCategoryParentIdByPid';
+        $criteria['Act'] = 'GetGoodsCategoryParentIdByPid';
 
-        return $this->client->get($url, $criteria)->firstValue('cid');
+        return $this->client->post($url, $criteria)->firstValue('cid');
     }
 
     /**
@@ -90,9 +92,10 @@ class Vendor_Goods_Category extends Vendor_Api
      */
     public function getMulti($criteria)
     {
-        $url = 'goods/categories?act=getMulti';
+        $url = '?GetGoodsCategoryMulti';
+        $criteria['Act'] = 'GetGoodsCategoryMulti';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
     /**
      * getParentPath
@@ -105,8 +108,9 @@ class Vendor_Goods_Category extends Vendor_Api
      */
     public function getParentPath($criteria)
     {
-        $url = 'goods/categories?act=getParentPath';
+        $url = '?GetGoodsCategoryParentPath';
+        $criteria['Act'] = 'GetGoodsCategoryParentPath';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
 }
