@@ -25,8 +25,10 @@ class Vendor_Promotion_Package extends Vendor_Api
      */
     public function getPackageGoodsList($criteria)
     {
-        $url = 'promotion/package?act=getPackageGoodsList';
+        //$url = 'promotion/package?act=getPackageGoodsList';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetPackageGoodsList';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }
