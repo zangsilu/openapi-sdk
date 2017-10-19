@@ -31,9 +31,10 @@ class Vendor_Stock extends Vendor_Api
      */
     public function getStockByTimestamp($criteria)
     {
-        $url = 'stocks?act=getVariedProductIdsByTimestamp';
+        $url = '?GetVariedProductIdsByTimestamp';
+        $criteria['Act'] = 'GetVariedProductIdsByTimestamp';
 
-        $results = $this->client->get($url, $criteria)->toArray();
+        $results = $this->client->post($url, $criteria)->toArray();
         
         $storage  = isset($criteria['storage'])? $criteria['storage'] : '';
         $storages = array(0);
@@ -72,10 +73,10 @@ class Vendor_Stock extends Vendor_Api
             array('product_id', 'spec_id', 'storage_num', 'storage', 'city_storage_num', 'is_erp'),
             array($productId, $specId, intval($storageNum), $storage, $cityStorageNum, $isErp)
         );
+        $url = '?CalculateStockByProductId';
+        $criteria['Act'] = 'CalculateStockByProductId';
 
-        $url = 'stocks?act=calculateByProductId';
-
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
     /**
      * calculateMulti
@@ -97,8 +98,9 @@ class Vendor_Stock extends Vendor_Api
             array($ids, $specId, intval($storageNum), $storage, $cityStorageNum, $isErp)
         );
 
-        $url = 'stocks?act=calculateMulti';
+        $url = '?CalculateMultiStock';
+        $criteria['Act'] = 'CalculateMultiStock';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post($url, $criteria)->toArray();
     }
 }
