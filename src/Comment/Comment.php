@@ -23,9 +23,11 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getList($criteria)
     {
-        $url = 'comments?act=getList';
+        //$url = 'comments?act=getList';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetCommentList';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
     /**
      * 获取评论数量
@@ -36,9 +38,11 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getCount($criteria)
     {
-        $url = 'comments?act=getCount';
+        //$url = 'comments?act=getCount';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetCommentCount';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -50,12 +54,17 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getCountOfCanComment($criteria, $assoc = true)
     {
-        $url = 'comments?act=getCountOfCanComment';
+        //$url = 'comments?act=getCountOfCanComment';
+        //if ($assoc) {
+        //    return $this->client->get($url, $criteria)->toArray();
+        //}
+        //return $this->client->get($url, $criteria);
+        $criteria['Act'] = 'GetCountOfCanComment';
         if ($assoc) {
-            return $this->client->get($url, $criteria)->toArray();
+            return $this->client->post('', $criteria)->toArray();
         }
 
-        return $this->client->get($url, $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -67,9 +76,11 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getByReplyIdValid($criteria)
     {
-        $url = 'comments?act=getByReplyIdValid';
+        //$url = 'comments?act=getByReplyIdValid';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetCommentByReplyIdValid';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -81,9 +92,11 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getByParentId($criteria)
     {
-        $url = 'comments?act=getByParentId';
+        //$url = 'comments?act=getByParentId';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetCommentByParentId';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -97,9 +110,11 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getByBrandId($criteria)
     {
-        $url = 'comments?act=getByBrandId';
+        //$url = 'comments?act=getByBrandId';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetCommentByBrandId';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -111,9 +126,11 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function getListByOidPidUid($criteria)
     {
-        $url = 'comments?act=getListByOidPidUid';
+        //$url = 'comments?act=getListByOidPidUid';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetCommentListByOidPidUid';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -125,12 +142,17 @@ class Vendor_Comment_Comment extends Vendor_Api
      */
     public function create($comment, $assoc = true)
     {
-        $url = 'comment';
+        //$url = 'comment';
+        //if ($assoc) {
+        //    return $this->client->post($url, $comment)->toArray();
+        //}
+        //return $this->client->post($url, $comment);
+        $comment['Act'] = 'AddComment';
         if ($assoc) {
-            return $this->client->post($url, $comment)->toArray();
+            return $this->client->post('', $comment)->toArray();
         }
 
-        return $this->client->post($url, $comment);
+        return $this->client->post('', $comment);
     }
 
     /**

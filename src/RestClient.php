@@ -114,7 +114,13 @@ class Vendor_RestClient
 
         if ($method == 'POST') {
             // 设置方法
-            $act = isset($vars['Act']) ? $vars['Act'] : '';
+            if (isset($vars['Act'])) {
+                $act = $vars['Act'];
+            } elseif (isset($vars['method'])) {
+                $act = $vars['method'];
+            } else {
+                $act = '';
+            }
             if (! $act) {
                 $act = 'ActionNotFound';
             }
