@@ -25,9 +25,11 @@ class Vendor_Promotion_Promotion extends Vendor_Api
      */
     public function disposeSingleActivity($criteria)
     {
-        $url = 'promotion/dispose_single_activity';
+        //$url = 'promotion/dispose_single_activity';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'DisposeSingleActivity';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -41,10 +43,13 @@ class Vendor_Promotion_Promotion extends Vendor_Api
      */
     public function disposeFullActivityExtraInfo($criteria)
     {
-        $url = 'promotion/dispose_full_activity_extra_info';
+        //$url = 'promotion/dispose_full_activity_extra_info';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'DisposeFullActivityExtraInfo';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
+
     /**
      * 促销信息 proActivity
      *

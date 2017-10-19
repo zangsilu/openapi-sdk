@@ -25,9 +25,11 @@ class Vendor_Promotion_Product_Price extends Vendor_Api
      */
     public function getSearchPrice($criteria)
     {
-        $url = 'promotion/product_price?act=getSearchPrice';
+        //$url = 'promotion/product_price?act=getSearchPrice';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetGoodsSearchPrice';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -41,8 +43,10 @@ class Vendor_Promotion_Product_Price extends Vendor_Api
      */
     public function getGoodsPrice($criteria)
     {
-        $url = 'promotion/product_price?act=getGoodsPrice';
+        //$url = 'promotion/product_price?act=getGoodsPrice';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetGoodsPrice';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }

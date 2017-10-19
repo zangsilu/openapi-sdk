@@ -23,9 +23,11 @@ class Vendor_Advisory_Advisory extends Vendor_Api
      */
     public function getListWithGoodsInfo($criteria)
     {
-        $url = 'advisories?act=getListWithGoodsInfo';
+        //$url = 'advisories?act=getListWithGoodsInfo';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetAdvisoryListWithGoodsInfo';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
     /**
      * 获取咨询回复
@@ -36,9 +38,11 @@ class Vendor_Advisory_Advisory extends Vendor_Api
      */
     public function getReply($criteria)
     {
-        $url = 'advisories?act=getByParentId';
-       
-        return $this->client->get($url, $criteria)->toArray();
+        //$url = 'advisories?act=getByParentId';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetAdvisoryByParentId';
+
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -50,8 +54,10 @@ class Vendor_Advisory_Advisory extends Vendor_Api
      */
     public function getCount($criteria)
     {
-        $url = 'advisories?act=getCount';
-        
-        return $this->client->get($url, $criteria)->first();
+        //$url = 'advisories?act=getCount';
+        //return $this->client->get($url, $criteria)->first();
+        $criteria['Act'] = 'GetAdvisoryCount';
+
+        return $this->client->post('', $criteria)->toArray();
     }
 }

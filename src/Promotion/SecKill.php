@@ -25,9 +25,11 @@ class Vendor_Promotion_SecKill extends Vendor_Api
      */
     public function getSecKillGoodsList($criteria)
     {
-        $url = 'promotion/seckill?act=getSecKillGoodsList';
+        //$url = 'promotion/seckill?act=getSecKillGoodsList';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetSecKillGoodsList';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -41,8 +43,10 @@ class Vendor_Promotion_SecKill extends Vendor_Api
      */
     public function getSecKillGoodsListByActivityIds($criteria)
     {
-        $url = 'promotion/seckill?act=getSecKillGoodsListByActivityIds';
+        //$url = 'promotion/seckill?act=getSecKillGoodsListByActivityIds';
+        //return $this->client->get($url, $criteria)->toArray();
+        $criteria['Act'] = 'GetSecKillGoodsListByActivityIds';
 
-        return $this->client->get($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }

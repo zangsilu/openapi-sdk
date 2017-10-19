@@ -23,8 +23,10 @@ class Vendor_Promotion_Cache extends Vendor_Api
      */
     public function clearCache()
     {
-        $url = 'promotion/cache';
+        //$url = 'promotion/cache';
+        //return $this->client->delete($url)->toArray();
+        $criteria['Act'] = 'ClearPromotionCache';
 
-        return $this->client->delete($url)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }
