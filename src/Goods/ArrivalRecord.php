@@ -26,10 +26,9 @@ class Vendor_Goods_ArrivalRecord extends Vendor_Api
      */
     public function getCount($criteria)
     {
-        $url = '?GetGoodsArriRecordCount';
         $criteria['Act'] = 'GetGoodsArriRecordCount';
 
-        return $this->client->post($url, $criteria)->first();
+        return $this->client->post('', $criteria)->first();
     }
     /**
      * getMultiCount
@@ -40,10 +39,9 @@ class Vendor_Goods_ArrivalRecord extends Vendor_Api
      */
     public function getMultiCount($criteria)
     {
-        $url = '?GetGoodsArriRecordCount';
         $criteria['Act'] = 'GetGoodsArriRecordCount';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
 
     /**
@@ -56,10 +54,8 @@ class Vendor_Goods_ArrivalRecord extends Vendor_Api
      */
     public function commitArrivalNotice($criteria)
     {
-        $url = '?CommitArrivalNotice';
-
         $criteria['Act'] = 'CommitArrivalNotice';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
 }

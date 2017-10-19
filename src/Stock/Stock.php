@@ -31,10 +31,9 @@ class Vendor_Stock extends Vendor_Api
      */
     public function getStockByTimestamp($criteria)
     {
-        $url = '?GetVariedProductIdsByTimestamp';
         $criteria['Act'] = 'GetVariedProductIdsByTimestamp';
 
-        $results = $this->client->post($url, $criteria)->toArray();
+        $results = $this->client->post('', $criteria)->toArray();
         
         $storage  = isset($criteria['storage'])? $criteria['storage'] : '';
         $storages = array(0);
@@ -73,10 +72,9 @@ class Vendor_Stock extends Vendor_Api
             array('product_id', 'spec_id', 'storage_num', 'storage', 'city_storage_num', 'is_erp'),
             array($productId, $specId, intval($storageNum), $storage, $cityStorageNum, $isErp)
         );
-        $url = '?CalculateStockByProductId';
         $criteria['Act'] = 'CalculateStockByProductId';
 
-        return $this->client->post($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
     /**
      * calculateMulti
@@ -98,9 +96,8 @@ class Vendor_Stock extends Vendor_Api
             array($ids, $specId, intval($storageNum), $storage, $cityStorageNum, $isErp)
         );
 
-        $url = '?CalculateMultiStock';
         $criteria['Act'] = 'CalculateMultiStock';
 
-        return $this->client->post($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 }

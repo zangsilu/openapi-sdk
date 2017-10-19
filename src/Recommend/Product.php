@@ -46,10 +46,9 @@ class Vendor_Recommend_Product extends Vendor_Api
      */
     public function same($criteria)
     {
-        $url = '?GetRecommendSameProducts';
         $criteria['Act'] = 'GetRecommendSameProducts';
 
-        return $this->client->post($url, $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * show
@@ -62,11 +61,9 @@ class Vendor_Recommend_Product extends Vendor_Api
      */
     public function show($id, $criteria = array())
     {
-        $url = '?GetGoodsInfo';
-
         $criteria['Act'] = 'GetGoodsInfo';
         $criteria['id'] = $id;
 
-        return  $this->client->post($url, $criteria)->toArray();
+        return  $this->client->post('', $criteria)->toArray();
     }
 }

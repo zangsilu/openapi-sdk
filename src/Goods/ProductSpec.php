@@ -25,11 +25,10 @@ class Vendor_Goods_ProductSpec extends Vendor_Api
      */
     public function getCountByProductId($criteria)
     {
-        $url = '?GetGoodsSpecCountByProductId';
         $criteria['Act'] = 'GetGoodsSpecCountByProductId';
         
         $results = array();
-        $response = $this->client->post($url, $criteria)->toArray();
+        $response = $this->client->post('', $criteria)->toArray();
 
         foreach ($response as $value) {
             $results[$value['productid']] = $value['nums'];
@@ -52,14 +51,13 @@ class Vendor_Goods_ProductSpec extends Vendor_Api
      */
     public function getByProductIdValid($criteria, $orderSort = '', $limit = 0, $offset = -1)
     {
-        $url = '?GetGoodsSpecByProductIdValid';
         $criteria['Act'] = 'GetGoodsSpecByProductIdValid';
 
         $orderSort ? ($criteria['ordersort'] = $orderSort) : '';
         $limit >0? ($criteria['limit']     = $limit) :'';
         $offset >=0? ($criteria['offset']    = $offset): '';
 
-        $response = $this->client->post($url, $criteria)->toArray();
+        $response = $this->client->post('', $criteria)->toArray();
         return $response;
     }
     /**

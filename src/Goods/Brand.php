@@ -26,11 +26,10 @@ class Vendor_Goods_Brand extends Vendor_Api
      */
     public function getList($criteria, $orderSort = '')
     {
-        $url = '?GetGoodsBrandList';
         $orderSort ? $criteria['ordersort'] = $orderSort : '';
         $criteria['Act'] = 'GetGoodsBrandList';
        
-        return $this->client->post($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -61,11 +60,10 @@ class Vendor_Goods_Brand extends Vendor_Api
      */
     public function getMulti($criteria, $filter = array())
     {
-        $url = '?GetGoodsBrandMulti';
         $criteria['Act'] = 'GetGoodsBrandMulti';
 
         $brands = array();
-        foreach ($this->client->post($url, $criteria) as $brandId => $brand) {
+        foreach ($this->client->post('', $criteria) as $brandId => $brand) {
             $isFilter = false;
             foreach ($filter as $key => $value) {
                 if (isset($brand[$key]) && $brand[$key]  == $value) {
@@ -93,7 +91,7 @@ class Vendor_Goods_Brand extends Vendor_Api
     {
         $criteria['Act'] = 'CancelMyBrand';
 
-        return $this->client->post('?CancelMyBrand', $criteria);
+        return $this->client->post('', $criteria);
     }
     /**
      * 收藏 commitMyBrand
@@ -108,6 +106,6 @@ class Vendor_Goods_Brand extends Vendor_Api
     {
         $criteria['Act'] = 'CommitMyBrand';
 
-        return $this->client->post('?CommitMyBrand', $criteria);
+        return $this->client->post('', $criteria);
     }
 }

@@ -67,12 +67,10 @@ class Vendor_Goods_Product extends Vendor_Api
      */
     public function show($id, $criteria = array())
     {
-        $url = '?GetGoodsInfo';
-
         $criteria['Act'] = 'GetGoodsInfo';
         $criteria['id'] = $id;
 
-        return  $this->client->post($url, $criteria)->toArray();
+        return  $this->client->post('', $criteria)->toArray();
     }
 
     /**
@@ -85,11 +83,10 @@ class Vendor_Goods_Product extends Vendor_Api
      */
     public function update($id, $criteria)
     {
-        $url = '?UpdateGoodsInfo';
         $criteria['id'] = $id;
         $criteria['Act'] = 'UpdateGoodsInfo';
 
-        return $this->client->post($url, $criteria)->toArray();
+        return $this->client->post('', $criteria)->toArray();
     }
 
     /**
