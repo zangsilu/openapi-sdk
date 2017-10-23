@@ -136,4 +136,20 @@ class Vendor_Goods_Product extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * getprodetailimg 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function getprodetailimg($criteria)
+    {
+        $criteria['Act'] = 'mobile_getprodetailimg';
+
+        return $this->client->post('', $criteria)->json();
+    }
 }
