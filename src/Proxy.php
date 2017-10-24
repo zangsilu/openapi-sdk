@@ -31,7 +31,7 @@ class Vendor_Proxy
                 $config['app_secret'],
                 $config['base_url']
         );
-        $this->proxy = rtrim(preg_replace('#/v\d+(.\d+)?#', '', $config['base_url']), '/');
+        // $this->proxy = rtrim(preg_replace('#/v\d+(.\d+)?#', '', $config['base_url']), '/');
         $options = isset($config['options'])? $config['options']: array();
         $this->client = new Vendor_RestClient($appId, $appSecret, $this->proxy, $options);
     }
