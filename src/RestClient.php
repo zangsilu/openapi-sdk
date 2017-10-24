@@ -149,7 +149,7 @@ class Vendor_RestClient
                 parse_str($vars, $param);
             }
             $act = isset($param['Act']) ? $param['Act'] :(isset($param['method'])? $param['method']: '');
-            log_message('error', sprintf('url:%s?%s cost:%.3fs', $url, $act, $end-$start));
+            log_message('error', sprintf('url:%s cost:%.3fs', $url, $end-$start));
         }
         if (curl_errno($handle)) {
             list($error, $errno) = array(curl_error($handle), curl_errno($handle));
