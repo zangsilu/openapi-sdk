@@ -138,12 +138,12 @@ class Vendor_Goods_Product extends Vendor_Api
     }
 
     /**
-     * getprodetailimg 
-     * 
-     * @param mixed $criteria 
-     * 
+     * getprodetailimg
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getprodetailimg($criteria)

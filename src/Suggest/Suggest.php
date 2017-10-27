@@ -15,12 +15,12 @@
 class Vendor_Suggest_Suggest extends Vendor_Api
 {
     /**
-     * getDefaultSuggest 
-     * 
-     * @param mixed $criteria 
-     * 
+     * getDefaultSuggest
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getDefaultSuggest($criteria)

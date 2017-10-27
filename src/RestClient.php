@@ -145,7 +145,7 @@ class Vendor_RestClient
         $end = microtime(true);
         if (function_exists('log_message')) {
             $param = $vars;
-            if (is_string($vars)){
+            if (is_string($vars)) {
                 parse_str($vars, $param);
             }
             $act = isset($param['Act']) ? $param['Act'] :(isset($param['method'])? $param['method']: '');

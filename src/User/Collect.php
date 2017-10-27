@@ -3,12 +3,12 @@
 class Vendor_User_Collect extends Vendor_Api
 {
     /**
-     * HandleGoodsCollection 
-     * 
-     * @param array $criteria 
-     * 
+     * HandleGoodsCollection
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function HandleGoodsCollection($criteria = array())
@@ -19,12 +19,12 @@ class Vendor_User_Collect extends Vendor_Api
     }
 
     /**
-     * GetMyCollectedGoodsList 
-     * 
-     * @param array $criteria 
-     * 
+     * GetMyCollectedGoodsList
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function GetMyCollectedGoodsList($criteria = array())
