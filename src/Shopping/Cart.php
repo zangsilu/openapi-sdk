@@ -31,6 +31,22 @@ class Vendor_Shopping_Cart extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+    /**
+     * 订单核对
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     *
+     * @return mixed
+     */
+    public function pcCheckIn($criteria)
+    {
+        $criteria['Act'] = 'PcChecIn';
+
+        return $this->client->post('', $criteria);
+    }
 
     /**
      * 修改购物车商品数量 modifyShoppingCartGoodsNumber
