@@ -43,7 +43,23 @@ class Vendor_Shopping_Cart extends Vendor_Api
      */
     public function pcCheckIn($criteria)
     {
-        $criteria['Act'] = 'PcChecIn';
+        $criteria['Act'] = 'PcCheckIn';
+
+        return $this->client->post('', $criteria);
+    }
+    /**
+     * 波奇豆使用
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     *
+     * @return mixed
+     */
+    public function pcCheckBean($criteria)
+    {
+        $criteria['Act'] = 'PcCheckBean';
 
         return $this->client->post('', $criteria);
     }

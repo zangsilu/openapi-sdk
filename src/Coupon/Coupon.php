@@ -29,6 +29,21 @@ class Vendor_Coupon_Coupon extends Vendor_Api
        
         return $this->client->post('', $criteria);
     }
+    /**
+     * pcCheckCoupon
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function pcCheckCoupon($criteria)
+    {
+        $criteria['Act'] =  'PcCheckCoupon';
+       
+        return $this->client->post('', $criteria);
+    }
 
     /**
      * shopCouponBatchSend
