@@ -152,4 +152,20 @@ class Vendor_Goods_Product extends Vendor_Api
 
         return $this->client->post('', $criteria)->json();
     }
+
+    /**
+     * getShoppingMallGoodsDetailPC 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function getShoppingMallGoodsDetailPC($criteria)
+    {
+        $criteria['Act'] = 'GetShoppingMallGoodsDetailPC';
+
+        return $this->client->post('', $criteria);
+    }
 }
