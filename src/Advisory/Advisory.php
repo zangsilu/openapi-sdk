@@ -80,4 +80,20 @@ class Vendor_Advisory_Advisory extends Vendor_Api
 
         return $this->client->post('', $advisory);
     }
+
+    /**
+     * GetGoodsAdvisories 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function GetGoodsAdvisories($criteria)
+    {
+        $criteria['Act'] = 'GetGoodsAdvisories';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
