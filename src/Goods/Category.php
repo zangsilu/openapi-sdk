@@ -107,4 +107,19 @@ class Vendor_Goods_Category extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+    /**
+     * getPathName 
+     * 
+     * @param mixed $criteria 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function getPathName($criteria)
+    {
+        $criteria['Act'] = 'GetGoodsCategoryPathName';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
