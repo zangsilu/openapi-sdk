@@ -60,4 +60,24 @@ class Vendor_Advisory_Advisory extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+    /**
+     * create 
+     * 
+     * @param mixed $advisory
+     * @param mixed $assoc 
+     * 
+     * @access public
+     * 
+     * @return mixed
+     */
+    public function create($advisory, $assoc = true)
+    {
+        $advisory['Act'] = 'AddAdvisory';
+        if ($assoc) {
+            return $this->client->post('', $advisory)->toArray();
+        }
+
+        return $this->client->post('', $advisory);
+    }
 }
