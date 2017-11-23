@@ -112,4 +112,18 @@ class Vendor_Goods_Photo extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+    /**
+     * 根据商品ID批量获取商品主图
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getGoodsMainPhotoByPid($criteria)
+    {
+        $criteria['Act'] = 'GetGoodsMainPhotoByPid';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
