@@ -62,13 +62,13 @@ class Vendor_Advisory_Advisory extends Vendor_Api
     }
 
     /**
-     * create 
-     * 
+     * create
+     *
      * @param mixed $advisory
-     * @param mixed $assoc 
-     * 
+     * @param mixed $assoc
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function create($advisory, $assoc = true)
@@ -82,12 +82,12 @@ class Vendor_Advisory_Advisory extends Vendor_Api
     }
 
     /**
-     * GetGoodsAdvisories 
-     * 
-     * @param mixed $criteria 
-     * 
+     * GetGoodsAdvisories
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function GetGoodsAdvisories($criteria)

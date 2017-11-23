@@ -139,12 +139,12 @@ class Vendor_Coupon_Coupon extends Vendor_Api
     }
 
     /**
-     * getUnsendNum 
-     * 
-     * @param mixed $criteria 
-     * 
+     * getUnsendNum
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getUnsendNum($criteria)

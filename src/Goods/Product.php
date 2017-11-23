@@ -154,12 +154,12 @@ class Vendor_Goods_Product extends Vendor_Api
     }
 
     /**
-     * getShoppingMallGoodsDetailPC 
-     * 
-     * @param mixed $criteria 
-     * 
+     * getShoppingMallGoodsDetailPC
+     *
+     * @param mixed $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getShoppingMallGoodsDetailPC($criteria)
