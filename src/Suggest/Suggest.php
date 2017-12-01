@@ -29,4 +29,17 @@ class Vendor_Suggest_Suggest extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+    /**
+     * 获取联想词 suggest
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function suggest($criteria)
+    {
+        return $this->client->get('product/suggest', $criteria)->toArray();
+    }
 }
