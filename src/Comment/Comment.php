@@ -190,4 +190,18 @@ class Vendor_Comment_Comment extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+    /**
+     * 获取订单可评论商品列表
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function getOrderCanCommentGoodsList($criteria)
+    {
+        $criteria['Act'] = 'GetOrderCanCommentGoodsList';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
