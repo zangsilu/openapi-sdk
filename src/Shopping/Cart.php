@@ -32,6 +32,22 @@ class Vendor_Shopping_Cart extends Vendor_Api
         return $this->client->post('', $criteria);
     }
     /**
+     * 删除购物车 DeleteShoppingCartGoods
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     *
+     * @return mixed
+     */
+    public function deleteShoppingCartGoods($criteria)
+    {
+        $criteria['Act'] = 'DeleteShoppingCartGoods';
+
+        return $this->client->post('', $criteria);
+    }
+    /**
      * 订单核对
      *
      * @param mixed $criteria
