@@ -204,4 +204,46 @@ class Vendor_Comment_Comment extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+    /**
+     * 提交评论(PC专用)
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function commitOrderGoodsComment($criteria)
+    {
+        $criteria['Act'] = 'CommitOrderGoodsComment';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
+
+    /**
+     * 检查订单是否可被评论
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function checkOrderIsComment($criteria)
+    {
+        $criteria['Act'] = 'CheckOrderIsComment';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
+
+    /**
+     * 检查订单是否已评论完
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function checkOrderCommentIsEnd($criteria)
+    {
+        $criteria['Act'] = 'CheckOrderCommentIsEnd';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
