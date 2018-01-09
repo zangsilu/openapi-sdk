@@ -65,4 +65,32 @@ class Vendor_Promotion_Promotion extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+    /**
+     * GetActivityGoodsListByActivityId
+     *
+     * @param array $criteria
+     *
+     * @return mixed
+     */
+    public function getActivityGoodsListByActivityId($criteria)
+    {
+        $criteria['Act'] = 'GetActivityGoodsListByActivityId';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
+
+    /**
+     * GetFullReductionCartInfo
+     *
+     * @param array $criteria
+     *
+     * @return mixed
+     */
+    public function getFullReductionCartInfo($criteria)
+    {
+        $criteria['Act'] = 'GetActivityGoodsListByActivityId';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
