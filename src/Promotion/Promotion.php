@@ -89,7 +89,7 @@ class Vendor_Promotion_Promotion extends Vendor_Api
      */
     public function getFullReductionCartInfo($criteria)
     {
-        $criteria['Act'] = 'GetActivityGoodsListByActivityId';
+        $criteria['Act'] = 'GetFullReductionCartInfo';
 
         return $this->client->post('', $criteria)->toArray();
     }
