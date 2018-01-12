@@ -46,4 +46,16 @@ class Vendor_Shopping_Payment extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * 发送 微信模板消息
+     *
+     * @param $criteria
+     * @return mixed
+     */
+    public function sendWxTemplateMsg($criteria) {
+        $criteria['Act'] = 'SendWxTemplateMsg';
+
+        return $this->client->post('', $criteria);
+    }
 }
