@@ -53,8 +53,8 @@ class Vendor_Shopping_Payment extends Vendor_Api
      * @param $criteria
      * @return mixed
      */
-    public function sendWxTemplateMsg($criteria) {
-        $criteria['Act'] = 'SendWxTemplateMsg';
+    public function sendRefundTemplateMsg($criteria) {
+        $criteria['Act'] = 'SendRefundTemplateMsg';
 
         return $this->client->post('', $criteria);
     }
