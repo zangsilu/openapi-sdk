@@ -58,4 +58,16 @@ class Vendor_Shopping_Payment extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * 支付回调，通知拼团支付结果
+     *
+     * @param $criteria
+     * @return mixed
+     */
+    public function payGroupMemberOrder($criteria) {
+        $criteria['Act'] = 'PayGroupMemberOrder';
+
+        return $this->client->post('', $criteria);
+    }
 }
