@@ -27,6 +27,6 @@ class Vendor_RedPacket_RedPacket extends Vendor_Api
     {
         $criteria['Act'] = 'GetMyRedPacketList';
 
-        return $this->client->post('', $criteria)->toArray();
+        return $this->client->post('', $criteria);
     }
 }
