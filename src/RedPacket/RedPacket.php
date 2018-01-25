@@ -29,4 +29,18 @@ class Vendor_RedPacket_RedPacket extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * PcCheckRedPacket
+     *
+     * @param $criteria
+     *
+     * @return mixed
+     */
+    public function pcCheckRedPacket($criteria)
+    {
+        $criteria['Act'] = 'PcCheckRedPacket';
+
+        return $this->client->post('', $criteria);
+    }
 }
