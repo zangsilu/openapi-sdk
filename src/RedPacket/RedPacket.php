@@ -43,4 +43,20 @@ class Vendor_RedPacket_RedPacket extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * GetShoppingMallRedPacket
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getShoppingMallRedPacket($criteria)
+    {
+        $criteria['Act'] = 'GetShoppingMallRedPacket';
+
+        return $this->client->post('', $criteria);
+    }
 }
