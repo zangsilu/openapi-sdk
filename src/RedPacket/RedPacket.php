@@ -59,4 +59,20 @@ class Vendor_RedPacket_RedPacket extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * RemoveRedPacketInfo
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function removeRedPacketInfo($criteria)
+    {
+        $criteria['Act'] = 'RemoveRedPacketInfo';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
