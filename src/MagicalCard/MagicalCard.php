@@ -47,6 +47,22 @@ class Vendor_MagicalCard_MagicalCard extends Vendor_Api
     }
 
     /**
+     * ActiveMagicalCardRechargeOrder
+     *
+     * @param $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function activeMagicalCardRechargeOrder($criteria)
+    {
+        $criteria['Act'] = 'ActiveMagicalCardRechargeOrder';
+
+        return $this->client->post('', $criteria);
+    }
+
+    /**
      * CancelMagicalCardRechargeOrder
      *
      * @param array $criteria
@@ -74,6 +90,22 @@ class Vendor_MagicalCard_MagicalCard extends Vendor_Api
     public function destroyMagicalCard($criteria)
     {
         $criteria['Act'] = 'DestroyMagicalCard';
+
+        return $this->client->post('', $criteria);
+    }
+
+    /**
+     * StopMagicalCard
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function stopMagicalCard($criteria)
+    {
+        $criteria['Act'] = 'StopMagicalCard';
 
         return $this->client->post('', $criteria);
     }
