@@ -75,4 +75,52 @@ class Vendor_RedPacket_RedPacket extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+    /**
+     * GetUserRedPacketStatisticsInfoByPrefix
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getUserRedPacketStatisticsInfoByPrefix($criteria)
+    {
+        $criteria['Act'] = 'GetUserRedPacketStatisticsInfoByPrefix';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
+
+    /**
+     * CheckRedPacketStatus
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function checkRedPacketStatus($criteria)
+    {
+        $criteria['Act'] = 'CheckRedPacketStatus';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
+
+    /**
+     * GetRedPacket
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getRedPacket($criteria)
+    {
+        $criteria['Act'] = 'GetRedPacket';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
