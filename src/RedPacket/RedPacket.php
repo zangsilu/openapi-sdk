@@ -29,6 +29,17 @@ class Vendor_RedPacket_RedPacket extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+    /**
+     * 红包拉新活动 pullNewPacketSend
+     *
+     * @param mixed $criteria
+     */
+    public function pullNewPacketSend($criteria)
+    {
+        $criteria['Act'] = 'PullNewPacketSend';
+
+        return $this->client->post('', $criteria);
+    }
 
     /**
      * PcCheckRedPacket
