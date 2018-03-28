@@ -15,12 +15,12 @@
 class Vendor_RedPacket_RedPacket extends Vendor_Api
 {
     /**
-     * GetMyRedPacketList 
-     * 
-     * @param array $criteria 
-     * 
+     * GetMyRedPacketList
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getMyRedPacketList($criteria)
