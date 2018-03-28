@@ -141,4 +141,20 @@ class Vendor_MagicalCard_MagicalCard extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * GetMagicalCardDestroyInfo
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getMagicalCardDestroyInfo($criteria)
+    {
+        $criteria['Act'] = 'GetMagicalCardDestroyInfo';
+
+        return $this->client->post('', $criteria);
+    }
 }
