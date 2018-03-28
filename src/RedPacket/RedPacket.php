@@ -15,17 +15,28 @@
 class Vendor_RedPacket_RedPacket extends Vendor_Api
 {
     /**
-     * GetMyRedPacketList 
-     * 
-     * @param array $criteria 
-     * 
+     * GetMyRedPacketList
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getMyRedPacketList($criteria)
     {
         $criteria['Act'] = 'GetMyRedPacketList';
+
+        return $this->client->post('', $criteria);
+    }
+    /**
+     * 红包拉新活动 pullNewPacketSend
+     *
+     * @param mixed $criteria
+     */
+    public function pullNewPacketSend($criteria)
+    {
+        $criteria['Act'] = 'PullNewPacketSend';
 
         return $this->client->post('', $criteria);
     }
