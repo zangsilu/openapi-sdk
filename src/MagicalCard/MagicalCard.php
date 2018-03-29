@@ -157,4 +157,36 @@ class Vendor_MagicalCard_MagicalCard extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * DisposeMagicalCardDestroyLog
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function disposeMagicalCardDestroyLog($criteria)
+    {
+        $criteria['Act'] = 'DisposeMagicalCardDestroyLog';
+
+        return $this->client->post('', $criteria);
+    }
+
+    /**
+     * CommitMagicalCardDestroyLog
+     *
+     * @param array $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function commitMagicalCardDestroyLog($criteria)
+    {
+        $criteria['Act'] = 'CommitMagicalCardDestroyLog';
+
+        return $this->client->post('', $criteria);
+    }
 }
