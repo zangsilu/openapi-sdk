@@ -49,4 +49,11 @@ class Vendor_Promotion_SecKill extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+
+    public function getSpecialSecKillList($criteria)
+    {
+        $criteria['Act'] = 'GetSpecialSecKillList';
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
