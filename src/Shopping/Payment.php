@@ -53,7 +53,8 @@ class Vendor_Shopping_Payment extends Vendor_Api
      * @param $criteria
      * @return mixed
      */
-    public function sendRefundTemplateMsg($criteria) {
+    public function sendRefundTemplateMsg($criteria)
+    {
         $criteria['Act'] = 'SendRefundTemplateMsg';
 
         return $this->client->post('', $criteria);
@@ -65,7 +66,8 @@ class Vendor_Shopping_Payment extends Vendor_Api
      * @param $criteria
      * @return mixed
      */
-    public function payGroupMemberOrder($criteria) {
+    public function payGroupMemberOrder($criteria)
+    {
         $criteria['Act'] = 'PayGroupMemberOrder';
 
         return $this->client->post('', $criteria);
