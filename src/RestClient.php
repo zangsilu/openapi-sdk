@@ -48,6 +48,7 @@ class Vendor_RestClient
                     CURLOPT_CONNECTTIMEOUT =>3,
                     CURLOPT_TIMEOUT => 3,
                     CURLOPT_DNS_CACHE_TIMEOUT=>7200,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
                     CURLOPT_HEADER => true
                 ),
                 );
