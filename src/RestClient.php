@@ -54,6 +54,9 @@ class Vendor_RestClient
                 );
         $this->baseUrl            = $baseUrl;
         $this->options            = array_merge($defaultOptions, $options);
+        if (isset($options['curl_options'])) {
+            $this->options['curl_options'] = $options['curl_options'] + $defaultOptions['curl_options'];
+        }
         //$this->options['curl_options'] = array_merge($defaultOptions['curl_options'], $options['curl_options']);
         $this->options['access_app_id'] = $accessAppId;
         $this->options['access_app_secret'] = $accessAppSecret;
