@@ -61,17 +61,19 @@ class Vendor_Stock extends Vendor_Api
      * @param mixed $storageNum
      * @param mixed $storage
      * @param mixed $cityStorageNum
+     * @param mixed $isIncludeReserved
      *
      * @access public
      *
      * @return mixed
      */
-    public function calculateByProductId($productId, $specId = 0, $storageNum = 0, $storage = '', $cityStorageNum = 0, $isErp = 0)
+    public function calculateByProductId($productId, $specId = 0, $storageNum = 0, $storage = '', $cityStorageNum = 0, $isErp = 0, $isIncludeReserved = 0)
     {
         $criteria = array_combine(
             array('product_id', 'spec_id', 'storage_num', 'storage', 'city_storage_num', 'is_erp'),
             array($productId, $specId, intval($storageNum), $storage, $cityStorageNum, $isErp)
         );
+        $criteria['is_include_reserved'] = $isIncludeReserved;
         $criteria['Act'] = 'CalculateStockByProductId';
 
         return $this->client->post('', $criteria)->toArray();
@@ -84,17 +86,19 @@ class Vendor_Stock extends Vendor_Api
      * @param mixed $storageNum
      * @param mixed $storage
      * @param mixed $cityStorageNum
+     * @param mixed $isIncludeReserved
      *
      * @access public
      *
      * @return mixed
      */
-    public function calculateMulti($ids, $specId = 0, $storageNum = 0, $storage = '', $cityStorageNum = 0, $isErp = 0)
+    public function calculateMulti($ids, $specId = 0, $storageNum = 0, $storage = '', $cityStorageNum = 0, $isErp = 0, $isIncludeReserved = 0)
     {
         $criteria = array_combine(
             array('product_id', 'spec_id', 'storage_num', 'storage', 'city_storage_num', 'is_erp'),
             array($ids, $specId, intval($storageNum), $storage, $cityStorageNum, $isErp)
         );
+        $criteria['is_include_reserved'] = $isIncludeReserved;
 
         $criteria['Act'] = 'CalculateMultiStock';
 

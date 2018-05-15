@@ -1,5 +1,5 @@
 <?php
- 
+
 class Vendor_User_Bean extends Vendor_Api
 {
     /**
