@@ -43,7 +43,7 @@ class Vendor_Suggest_Suggest extends Vendor_Api
         return $this->client->get('product/suggest', $criteria)->toArray();
     }
 
-    /** 
+    /**
      * add
      *
      * @param array $criteria
@@ -53,7 +53,7 @@ class Vendor_Suggest_Suggest extends Vendor_Api
      * @return mixed
      */
     public function add($criteria = array())
-    {   
+    {
         $url = 'suggest';
         return $this->client->post($url, $criteria)->toArray();
     }

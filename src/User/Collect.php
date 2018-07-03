@@ -1,5 +1,5 @@
 <?php
- 
+
 class Vendor_User_Collect extends Vendor_Api
 {
     /**

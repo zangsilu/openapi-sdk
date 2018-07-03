@@ -49,4 +49,12 @@ class Vendor_Promotion_Product_Price extends Vendor_Api
 
         return $this->client->post('', $criteria)->toArray();
     }
+
+
+    public function getPriceListByUser($criteria)
+    {
+        $criteria['Act'] = 'GetPriceListByUser';
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }

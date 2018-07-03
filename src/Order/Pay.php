@@ -16,11 +16,11 @@ class Vendor_Order_Pay extends Vendor_Api
 {
     /**
      * GetOrderPayList
-     * 
-     * @param array $criteria 
-     * 
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getOrderPayList($criteria)

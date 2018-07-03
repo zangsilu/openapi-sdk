@@ -16,11 +16,11 @@ class Vendor_MagicalCard_MagicalCard extends Vendor_Api
 {
     /**
      * GetMagicalCardUserInfo
-     * 
-     * @param array $criteria 
-     * 
+     *
+     * @param array $criteria
+     *
      * @access public
-     * 
+     *
      * @return mixed
      */
     public function getMagicalCardUserInfo($criteria)

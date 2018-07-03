@@ -48,11 +48,15 @@ class Vendor_RestClient
                     CURLOPT_CONNECTTIMEOUT =>3,
                     CURLOPT_TIMEOUT => 3,
                     CURLOPT_DNS_CACHE_TIMEOUT=>7200,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_0,
                     CURLOPT_HEADER => true
                 ),
                 );
         $this->baseUrl            = $baseUrl;
         $this->options            = array_merge($defaultOptions, $options);
+        if (isset($options['curl_options'])) {
+            $this->options['curl_options'] = $options['curl_options'] + $defaultOptions['curl_options'];
+        }
         //$this->options['curl_options'] = array_merge($defaultOptions['curl_options'], $options['curl_options']);
         $this->options['access_app_id'] = $accessAppId;
         $this->options['access_app_secret'] = $accessAppSecret;
