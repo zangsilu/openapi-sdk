@@ -1,6 +1,6 @@
 <?php
 /**
- * Vendor_Order_Pay
+ * Vendor_Order_Order
  *
  * PHP version 5.2+
  *
@@ -12,10 +12,10 @@
  * @version   GIT:<git_id>
  * @link      http://shop.openapi.boqii.com
  */
-class Vendor_Order_Pay extends Vendor_Api
+class Vendor_Order_Order extends Vendor_Api
 {
     /**
-     * GetOrderPayList
+     * GetOrderMagicalCardInfo
      *
      * @param array $criteria
      *
@@ -23,23 +23,9 @@ class Vendor_Order_Pay extends Vendor_Api
      *
      * @return mixed
      */
-    public function getOrderPayList($criteria)
+    public function getOrderMagicalCardInfo($criteria)
     {
-        $criteria['Act'] = 'GetOrderPayList';
-
-        return $this->client->post('', $criteria);
-    }
-
-    /**
-     * ActiveShopOrder
-     *
-     * @param $criteria
-     *
-     * @return mixed
-     */
-    public function activeShopOrder($criteria)
-    {
-        $criteria['Act'] = 'ActiveShopOrder';
+        $criteria['Act'] = 'GetOrderMagicalCardInfo';
 
         return $this->client->post('', $criteria);
     }
