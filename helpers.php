@@ -162,6 +162,34 @@ if (!function_exists('json_last_error_msg')) {
     }
 }
 
+if (!function_exists('get_client_ip')) {
+    function get_client_ip()
+    {
+        $onlineIp = '';
+        if (!empty($_SERVER["HTTP_X_REAL_FORWARDED_FOR"])) {
+            $onlineIp = $_SERVER["HTTP_X_REAL_FORWARDED_FOR"];
+        } elseif ($_SERVER['HTTP_X_REAL_IP']) {
+            $onlineIp = $_SERVER['HTTP_X_REAL_IP'];
+        } elseif ($_SERVER['HTTP_X_FORWARDED_FOR']) {
+            $arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            $pos = array_search('unknown', $arr);
+            if (false !== $pos) {
+                unset($arr[$pos]);
+            }
+            $onlineIp = trim($arr[0]);
+        } elseif (getenv('HTTP_CLIENT_IP') && strcasecmp(getenv('HTTP_CLIENT_IP'), 'unknown')) {
+            $onlineIp = getenv('HTTP_CLIENT_IP');
+        } elseif (getenv('HTTP_X_FORWARDED_FOR') && strcasecmp(getenv('HTTP_X_FORWARDED_FOR'), 'unknown')) {
+            $onlineIp = getenv('HTTP_X_FORWARDED_FOR');
+        } elseif (getenv('REMOTE_ADDR') && strcasecmp(getenv('REMOTE_ADDR'), 'unknown')) {
+            $onlineIp = getenv('REMOTE_ADDR');
+        } elseif ($_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], 'unknown')) {
+            $onlineIp = $_SERVER['REMOTE_ADDR'];
+        }
+        return $onlineIp;
+    }
+}
+
 if (!function_exists('openApiProxy4CI')) {
 
     /**
@@ -208,7 +236,7 @@ if (!function_exists('openApiProxy4CI')) {
             $act
         );
         $openApiSdkConfig['options']['headers']['x-api-proxy'] = 'Api-Proxy';
-
+        $openApiSdkConfig['options']['headers']['HTTP_X_FORWARDED_FOR'] = get_client_ip();
         $proxy = new Vendor_Proxy($openApiSdkConfig);
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
         //$url .= (strpos($url, '?'] !== false ? '&' :'?'].http_build_query($_POST);
