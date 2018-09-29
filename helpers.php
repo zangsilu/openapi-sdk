@@ -236,7 +236,7 @@ if (!function_exists('openApiProxy4CI')) {
             $act
         );
         $openApiSdkConfig['options']['headers']['x-api-proxy'] = 'Api-Proxy';
-        $openApiSdkConfig['options']['headers']['HTTP_X_FORWARDED_FOR'] = get_client_ip();
+        $openApiSdkConfig['options']['headers']['x-forwarded-for'] = get_client_ip();
         $proxy = new Vendor_Proxy($openApiSdkConfig);
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
         //$url .= (strpos($url, '?'] !== false ? '&' :'?'].http_build_query($_POST);
