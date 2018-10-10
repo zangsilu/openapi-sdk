@@ -42,7 +42,7 @@ class Vendor_Order_Order extends Vendor_Api
      */
     public function getUserBuyGoodsInfo($criteria)
     {
-        $criteria['Act'] = 'getUserBuyGoodsInfoPc';
+        $criteria['Act'] = 'GetUserBuyGoodsInfoPc';
 
         return $this->client->post('', $criteria);
     }
