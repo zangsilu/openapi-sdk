@@ -9,7 +9,8 @@
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
-class Vendor_Prize_Prize extends Vendor_Api{
+class Vendor_Prize_Prize extends Vendor_Api
+{
     /**
      * 波奇豆发放
      *

@@ -108,4 +108,19 @@ class Vendor_Goods_Brand extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+    /**
+     * 获取二级分类下有商品售卖的品牌列表 GetBrandListBySecondCategoryId
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getBrandListBySecondCategoryId($criteria)
+    {
+        $criteria['Act'] = 'GetBrandListBySecondCategoryId';
+
+        return $this->client->post('', $criteria);
+    }
 }
