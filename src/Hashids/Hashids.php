@@ -1,8 +1,5 @@
 <?php
 
-require_once './HashidsInterface.php';
-require_once './Math.php';
-
 /**
  * This is the hashids class.
  *
