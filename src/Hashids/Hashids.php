@@ -1,5 +1,6 @@
 <?php
 
+require_once 'HashidsInterface.php';
 /**
  * This is the hashids class.
  *
