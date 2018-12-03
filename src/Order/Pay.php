@@ -43,4 +43,17 @@ class Vendor_Order_Pay extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+
+    /**
+     * ActiveShopPreSaleOrder
+     * @param $criteria
+     * @return mixed
+     * @throws Vendor_RestClient_Exception
+     */
+    public function activeShopPreSaleOrder($criteria)
+    {
+        $criteria['Act'] = 'ActiveShopPreSaleOrder';
+
+        return $this->client->post('', $criteria);
+    }
 }
