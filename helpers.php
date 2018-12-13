@@ -168,8 +168,6 @@ if (!function_exists('get_client_ip')) {
         $onlineIp = '';
         if (!empty($_SERVER["HTTP_X_REAL_FORWARDED_FOR"])) {
             $onlineIp = $_SERVER["HTTP_X_REAL_FORWARDED_FOR"];
-        } elseif ($_SERVER['HTTP_X_REAL_IP']) {
-            $onlineIp = $_SERVER['HTTP_X_REAL_IP'];
         } elseif ($_SERVER['HTTP_X_FORWARDED_FOR']) {
             $arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
             $pos = array_search('unknown', $arr);
