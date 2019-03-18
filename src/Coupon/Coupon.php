@@ -153,4 +153,20 @@ class Vendor_Coupon_Coupon extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+    
+    /**
+     * 获取品牌下优惠券列表
+     *
+     * @param mixed $criteria
+     *
+     * @access public
+     *
+     * @return mixed
+     */
+    public function getAvailableCouponListByBrandId($criteria)
+    {
+        $criteria['Act'] = 'GetAvailableCouponListByBrandId';
+
+        return $this->client->post('', $criteria);
+    }
 }
