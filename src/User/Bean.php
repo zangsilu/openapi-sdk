@@ -19,4 +19,15 @@ class Vendor_User_Bean extends Vendor_Api
 
         return $this->client->post('', $criteria);
     }
+	/**
+     * @param array $criteria
+     * @return mixed
+     */
+    public function getNormalBeanPercentByUserId($criteria = array())
+    {
+        $criteria['Act'] = 'GetNormalBeanPercentByUserId';
+        $criteria['UserId'] = (string) $criteria['UserId'];
+
+        return $this->client->post('', $criteria)->toArray();
+    }
 }
